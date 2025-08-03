@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "art5019safrobrazilities:item/buzio_conch"
+  }
+}
