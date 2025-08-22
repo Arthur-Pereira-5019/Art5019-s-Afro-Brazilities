@@ -1,0 +1,50 @@
+/summon minecraft:warden
+/tick rate 1
+/tick rate 20
+/gamemode creative
+/tp @e @s
+/gamemode survival
+/tp @s ~ ~100 ~
+/effect clear @s
+/tp @s ~ ~100 ~
+/effect clear @s
+/tp @s ~ ~200 ~
+/effect clear @s
+/tp @s ~ ~200 ~
+/summon minecraft:wither
+/tp @s ~ ~200 ~
+/time set day
+/gamemode creative
+/gamemode survival
+/time set night
+/gamemode creative
+/gamemode survival
+/summon minecraft:drowned
+/give @s minecraft:coal 64
+/give @s minecraft:cooked_beef 64
+/give @s minecraft:netherite_sword
+/enchant @s minecraft:sharpness 5
+/summon minecraft:drowned
+/give @s minecraft:water_bucket
+/summon minecraft:drowned
+/gamemode creative
+/gamemode survival
+/gamemode adventure
+/gamemode creative
+/tp @e @s
+/gamemode survival
+/gamemode creative
+/summon minecraft:wither_skull
+/tp @e @s
+/gamemode survival
+/summon minecraft:creaking
+/summon minecraft:creeper
+/gamemode creative
+/enchant @s minecraft:density 5
+/enchant @s minecraft:looting 3
+/enchant @s minecraft:wind_burst 3
+/gamemode survival
+/tp @e @s
+/gamemode creative
+/give @s art5019safrobrazilities:buzio_conch
+/give @s art5019safrobrazilities:buzio_conch 33

@@ -1,0 +1,27 @@
+# Main Class
+cpw.mods.bootstraplauncher.BootstrapLauncher
+
+# NeoForge Run-Type Program Arguments
+--launchTarget
+neoforgeclientdatadev
+--assetIndex
+26
+--assetsDir
+C:\\Users\\penei\\.gradle\\caches\\neoformruntime\\assets
+--fml.fmlVersion
+9.0.18
+--fml.mcVersion
+1.21.8
+--fml.neoForgeVersion
+21.8.36
+--fml.neoFormVersion
+20250717.133445
+
+# User Supplied Program Arguments
+--mod
+art5019safrobrazilities
+--all
+--output
+C:\\Users\\penei\\Desktop\\Dev\\Mods\\art5019safrobrazilities-template-1.21.8\\src\\generated\\resources
+--existing
+C:\\Users\\penei\\Desktop\\Dev\\Mods\\art5019safrobrazilities-template-1.21.8\\src\\main\\resources

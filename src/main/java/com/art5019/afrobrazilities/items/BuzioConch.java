@@ -6,6 +6,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Item.Properties;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -20,6 +21,6 @@ public class BuzioConch {
     public static final DeferredItem<Item> BUZIO_CONCH = ITEMS.registerItem(
             "buzio_conch",
             Item::new, // The factory that the properties will be passed into.
-            new Properties()
+            new Properties().rarity(Rarity.UNCOMMON)
     );
 }
