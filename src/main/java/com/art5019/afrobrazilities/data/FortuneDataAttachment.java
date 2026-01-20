@@ -21,12 +21,12 @@ import static com.art5019.afrobrazilities.Art5019sAfrobrazilities.*;
 @Mod(MODID)
 public class FortuneDataAttachment implements IAttachmentSerializer<List<FortuneRecord>>{
 
-    FortuneRecord fortune = new FortuneRecord("",0);
+    FortuneRecord fortune = new FortuneRecord(0,0);
     ArrayList<FortuneRecord> fortunes = new ArrayList<>();
 
     public static final Codec<FortuneRecord> FORTUNE_CODEC = RecordCodecBuilder.create(instance ->
             instance.group( // Define the fields within the instance
-                    Codec.STRING.fieldOf("s").forGetter(FortuneRecord::fortune),
+                    Codec.INT.optionalFieldOf("s",0).forGetter(FortuneRecord::fortune),
                     Codec.INT.optionalFieldOf("i", 0).forGetter(FortuneRecord::day)
             ).apply(instance, FortuneRecord::new)
     );
