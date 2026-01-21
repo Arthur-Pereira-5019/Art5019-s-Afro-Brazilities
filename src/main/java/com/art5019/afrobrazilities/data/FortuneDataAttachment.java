@@ -43,7 +43,7 @@ public class FortuneDataAttachment implements IAttachmentSerializer<List<Fortune
     public List<FortuneRecord> read(IAttachmentHolder iAttachmentHolder, ValueInput valueInput) {
         LOGGER.warn("Called");
         if(fortunes.isEmpty()) {
-            fortunes.add(new FortuneRecord("Live long and Happily",5));
+            fortunes.add(new FortuneRecord(0,5));
             LOGGER.warn("Called");
         }
         return fortunes;
