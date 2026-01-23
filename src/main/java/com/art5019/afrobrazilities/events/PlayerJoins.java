@@ -1,12 +1,14 @@
 package com.art5019.afrobrazilities.events;
 
 import com.art5019.afrobrazilities.data.FortuneDataAttachment;
+import com.art5019.afrobrazilities.data.FortuneHelper;
 import com.art5019.afrobrazilities.data.FortuneRecord;
 import com.art5019.afrobrazilities.data.Fortunes;
 import com.art5019.afrobrazilities.items.BuzioConch;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Drowned;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -25,11 +27,14 @@ import static com.art5019.afrobrazilities.data.FortuneDataAttachment.*;
 @Mod(MODID)
 @EventBusSubscriber
 public class PlayerJoins {
+
     @SubscribeEvent
     private static void playerLogs(PlayerEvent.PlayerLoggedInEvent event) {
-        LivingEntity entity = event.getEntity();
+        Player entity = event.getEntity();
         List<FortuneRecord> fortunes = entity.getData(FORTUNE);
-        if()
+        if(fortunes.isEmpty() || fortunes.size() < 10) {
+            FortuneHelper.generateFortunes(10,entity);
+        }
     }
 
 

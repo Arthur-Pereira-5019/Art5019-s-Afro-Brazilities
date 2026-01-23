@@ -35,7 +35,7 @@ public class FortuneDataAttachment implements IAttachmentSerializer<List<Fortune
 
     public static final Supplier<AttachmentType<List<FortuneRecord>>> FORTUNE = ATTACHMENT_TYPES.register(
             "fortune", () -> AttachmentType.builder((Supplier<List<FortuneRecord>>) ArrayList::new).
-                    serialize(FORTUNES.fieldOf("fortune")).build()
+                    serialize(FORTUNES.fieldOf("fortune")).copyOnDeath().build()
     );
 
 
