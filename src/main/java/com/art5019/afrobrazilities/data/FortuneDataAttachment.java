@@ -21,13 +21,13 @@ import static com.art5019.afrobrazilities.Art5019sAfrobrazilities.*;
 @Mod(MODID)
 public class FortuneDataAttachment implements IAttachmentSerializer<List<FortuneRecord>>{
 
-    FortuneRecord fortune = new FortuneRecord(0,0);
     ArrayList<FortuneRecord> fortunes = new ArrayList<>();
 
     public static final Codec<FortuneRecord> FORTUNE_CODEC = RecordCodecBuilder.create(instance ->
-            instance.group( // Define the fields within the instance
-                    Codec.INT.optionalFieldOf("s",0).forGetter(FortuneRecord::fortune),
-                    Codec.INT.optionalFieldOf("i", 0).forGetter(FortuneRecord::day)
+            instance.group(
+                    Codec.INT.fieldOf("f").forGetter(FortuneRecord::fortune),
+                    Codec.INT.fieldOf("d").forGetter(FortuneRecord::day),
+                    Codec.BOOL.fieldOf("h").forGetter(FortuneRecord::happenned)
             ).apply(instance, FortuneRecord::new)
     );
 
@@ -43,7 +43,7 @@ public class FortuneDataAttachment implements IAttachmentSerializer<List<Fortune
     public List<FortuneRecord> read(IAttachmentHolder iAttachmentHolder, ValueInput valueInput) {
         LOGGER.warn("Called");
         if(fortunes.isEmpty()) {
-            fortunes.add(new FortuneRecord(0,5));
+            fortunes.add(new FortuneRecord(7,3,false));
             LOGGER.warn("Called");
         }
         return fortunes;

@@ -7,6 +7,7 @@ import net.minecraft.world.level.Level;
 import java.util.List;
 import java.util.Random;
 
+import static com.art5019.afrobrazilities.Art5019sAfrobrazilities.LOGGER;
 import static com.art5019.afrobrazilities.data.FortuneDataAttachment.FORTUNE;
 
 public class FortuneHelper {
@@ -14,16 +15,20 @@ public class FortuneHelper {
     private static List<Fortunes> fortunes;
     private static Random r = new Random();
     public static void generateFortunes(int t, Player p, Level level) {
-        int day = (int) level.getGameTime() % 24000;
+        int day = (int) level.getGameTime() / 24000;
         for(int i = 0; i < t;i++) {
             int l = r.nextInt(0,totalWeight);
-            for(int j = 0; j < fortunes.size(); j++) {
-                if(l > fortunes.get(j).getWeigth()) {
+            int cW = 0;
+            for (Fortunes fortune : fortunes) {
+                if (cW > l) {
                     var data = p.getData(FORTUNE);
-                    data.add(new FortuneRecord(fortunes.get(j).getId(),day + r.nextInt(2,90)));
-                    p.setData(FORTUNE,data);
+                    data.add(new FortuneRecord(fortune.getId(), day + r.nextInt(2, 90), false));
+                    p.setData(FORTUNE, data);
+                    LOGGER.warn(String.valueOf(i));
+                    cW = 0;
                     break;
                 }
+                cW += fortune.getWeigth();
             }
         }
 
