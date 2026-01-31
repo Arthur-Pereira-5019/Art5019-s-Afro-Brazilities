@@ -1,6 +1,7 @@
 package com.art5019.afrobrazilities.events;
 
 import com.art5019.afrobrazilities.data.FortuneRecord;
+import com.art5019.afrobrazilities.data.Fortunes;
 import com.art5019.afrobrazilities.items.BuzioConch;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
@@ -25,19 +26,22 @@ import static com.art5019.afrobrazilities.items.BuzioConch.BUZIO_CONCH;
 public class BuzioConchRightClicked {
     @SubscribeEvent
     private static void onBuzioConchRightClicked(PlayerInteractEvent.RightClickItem event) {
-        if(event.getItemStack().is(BUZIO_CONCH)) {
-            Player player = event.getEntity();
-            Random r = new Random();
-            List<FortuneRecord> frs = player.getData(FORTUNE);
-            FortuneRecord fr = null;
-            if(!frs.isEmpty()) {
-                fr = player.getData(FORTUNE).get(r.nextInt(0, frs.size() - 1));
+        if(!event.getLevel().isClientSide) {
+            if(event.getItemStack().is(BUZIO_CONCH)) {
+                Player player = event.getEntity();
+                Random r = new Random();
+                List<FortuneRecord> frs = player.getData(FORTUNE);
+                FortuneRecord fr = null;
+                if(!frs.isEmpty()) {
+                    fr = player.getData(FORTUNE).get(r.nextInt(0, frs.size() - 1));
+                }
+                if(fr == null) {
+                    player.displayClientMessage(Component.literal("Your fate is unknown..."),true);
+                    return;
+                }
+                player.displayClientMessage(Component.translatable(Fortunes.getById(fr.fortune()).getTk_name()).append(Component.literal(" will happen at day " + fr.day())),true);
             }
-            if(fr == null) {
-                player.displayClientMessage(Component.literal("Your fate is unknown..."),true);
-                return;
-            }
-            player.displayClientMessage(Component.literal(fr.fortune() + " will happen at day" + fr.day()),true);
         }
+
     }
 }

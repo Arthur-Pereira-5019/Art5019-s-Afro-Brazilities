@@ -33,7 +33,7 @@ public class PlayerJoins {
         Player entity = event.getEntity();
         List<FortuneRecord> fortunes = entity.getData(FORTUNE);
         if(fortunes.isEmpty() || fortunes.size() < 10) {
-            FortuneHelper.generateFortunes(10,entity);
+            FortuneHelper.generateFortunes(10,entity,event.getEntity().level());
         }
     }
 

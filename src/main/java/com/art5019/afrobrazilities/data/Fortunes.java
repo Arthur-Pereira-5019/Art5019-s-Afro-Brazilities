@@ -50,4 +50,13 @@ public enum Fortunes {
     public boolean isPositive() {
         return positive;
     }
+
+    public static Fortunes getById(Integer id) {
+        for (Fortunes f : values()) {
+            if (f.id == id) {
+                return f;
+            }
+        }
+        return NOTHING;
+    }
 }
