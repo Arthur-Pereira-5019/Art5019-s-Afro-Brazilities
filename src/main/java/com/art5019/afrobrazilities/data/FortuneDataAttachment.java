@@ -1,7 +1,6 @@
 package com.art5019.afrobrazilities.data;
 
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.Keyable;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
@@ -9,7 +8,6 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.attachment.AttachmentType;
 import net.neoforged.neoforge.attachment.IAttachmentHolder;
 import net.neoforged.neoforge.attachment.IAttachmentSerializer;
-import net.neoforged.neoforge.items.ItemStackHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +25,7 @@ public class FortuneDataAttachment implements IAttachmentSerializer<List<Fortune
             instance.group(
                     Codec.INT.fieldOf("f").forGetter(FortuneRecord::fortune),
                     Codec.INT.fieldOf("d").forGetter(FortuneRecord::day),
-                    Codec.BOOL.fieldOf("h").forGetter(FortuneRecord::happenned)
+                    Codec.BOOL.fieldOf("h").forGetter(FortuneRecord::happened)
             ).apply(instance, FortuneRecord::new)
     );
 
