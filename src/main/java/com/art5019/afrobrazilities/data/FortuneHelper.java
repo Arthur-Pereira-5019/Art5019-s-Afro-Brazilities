@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 import static com.art5019.afrobrazilities.Art5019sAfrobrazilities.LOGGER;
 import static com.art5019.afrobrazilities.data.FortuneDataAttachment.FORTUNE;
@@ -16,7 +17,7 @@ public class FortuneHelper {
     private static List<Fortunes> fortunes;
     private static Random r = new Random();
     public static void generateFortunes(int times, Player p, Level level) {
-        int day = (int) level.getGameTime() / 24000;
+        int day = getDay(level);
         float ase = testAse(p);
         for(int i = 0; i < times; i++) {
             Fortunes f;
@@ -26,10 +27,23 @@ public class FortuneHelper {
                 f = generateRandomFortune(p);
             }
             var data = p.getData(FORTUNE);
-            data.add(new FortuneRecord(f.getId(), day + r.nextInt(2, 90), false));
+            //data.add(new FortuneRecord(f.getId(), day + r.nextInt(1, 90), false));
+            data.add(new FortuneRecord(f.getId(), day + r.nextInt(1, 3), false));
             p.setData(FORTUNE, data);
         }
 
+    }
+
+    public static List<Fortunes> fortunesToday(Player p) {
+        List<FortuneRecord> fortuneRecords = p.getData(FORTUNE);
+        List<Fortunes> fortunes = new ArrayList<>();
+        fortuneRecords = fortuneRecords.stream().filter(fortune -> fortune.day() == getDay(p.level())).toList();
+        fortuneRecords.forEach(f -> {fortunes.add(Fortunes.getById(f.fortune()));});
+        return fortunes;
+    }
+
+    public static int getDay(Level level) {
+        return (int) level.getGameTime() / 24000;
     }
 
     public static void startBase() {
@@ -74,6 +88,18 @@ public class FortuneHelper {
             cW += fortune.getWeigth();
         }
         return Fortunes.NOTHING;
+    }
+
+    public static void removeFortuneOfToday(Player p, Fortunes f) {
+        //System.out.println(p.level().getGameTime());
+        //System.out.println((int) (p.level().getGameTime() / 24000));
+        ArrayList<FortuneRecord> data = new ArrayList<>(p.getData(FORTUNE));
+        //System.out.println(f.toString() + " " + getDay(p.level()) + " " + f.getId());
+        data.forEach(x -> {System.out.println(Fortunes.getById(x.fortune()) + " " + x.day() + " " + x.fortune());});
+        //System.out.println(getDay(p.level()) + " " + f.getId());
+        data.removeIf(fr -> fr.day() == getDay(p.level()) && fr.fortune() == f.getId());
+        p.setData(FORTUNE, data);
+        generateFortunes(1,p, p.level());
     }
 
 
