@@ -13,7 +13,7 @@ import static com.art5019.afrobrazilities.Art5019sAfrobrazilities.MODID;
 public class BuzioConch {
     public static final DeferredItem<Item> BUZIO_CONCH = ITEMS.registerItem(
             "buzio_conch",
-            Item::new, // The factory that the properties will be passed into.
+            Item::new,
             new Properties().rarity(Rarity.UNCOMMON)
     );
 }
