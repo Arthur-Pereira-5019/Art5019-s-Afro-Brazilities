@@ -41,6 +41,6 @@ public class BabalorisaRenderer extends AgeableMobRenderer<Babalorisa, VillagerR
 
     @Override
     public ResourceLocation getTextureLocation(VillagerRenderState villagerRenderState) {
-        return ResourceLocation.fromNamespaceAndPath(MODID, "babalorisa");
+        return ResourceLocation.fromNamespaceAndPath(MODID, "textures/entity/babalorisa.png");
     }
 }

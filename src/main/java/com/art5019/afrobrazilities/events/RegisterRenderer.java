@@ -29,6 +29,7 @@ public class RegisterRenderer {
     }
 
     private static LayerDefinition renderVillager() {
+
         return LayerDefinition.create(VillagerModel.createBodyModel(), 64, 64);
     }
 
