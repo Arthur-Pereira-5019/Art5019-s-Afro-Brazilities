@@ -14,7 +14,7 @@ import static com.art5019.afrobrazilities.entity_type.BabalorisaEntityType.BABAL
 @Mod(MODID)
 @EventBusSubscriber
 public class BabalorisaSpawns {
-    @SubscribeEvent // on the mod event bus
+    @SubscribeEvent
     public static void createDefaultAttributes(EntityAttributeCreationEvent event) {
         event.put(
                 BABALORISA_TYPE.get(),
