@@ -1,6 +1,6 @@
 package com.art5019.afrobrazilities.events;
 
-import com.art5019.afrobrazilities.data.FortuneHelper;
+import com.art5019.afrobrazilities.utils.FortuneHelper;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;

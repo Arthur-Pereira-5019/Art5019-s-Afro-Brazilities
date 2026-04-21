@@ -1,5 +1,7 @@
-package com.art5019.afrobrazilities.data;
+package com.art5019.afrobrazilities.utils;
 
+import com.art5019.afrobrazilities.data.FortuneRecord;
+import com.art5019.afrobrazilities.data.Fortunes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
@@ -7,9 +9,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.Collectors;
 
-import static com.art5019.afrobrazilities.Art5019sAfrobrazilities.LOGGER;
 import static com.art5019.afrobrazilities.data.FortuneDataAttachment.FORTUNE;
 
 public class FortuneHelper {
@@ -101,6 +101,8 @@ public class FortuneHelper {
         p.setData(FORTUNE, data);
         generateFortunes(1,p, p.level());
     }
+
+
 
 
 }

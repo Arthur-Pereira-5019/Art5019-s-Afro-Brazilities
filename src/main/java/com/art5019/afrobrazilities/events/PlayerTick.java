@@ -1,11 +1,9 @@
 package com.art5019.afrobrazilities.events;
 
-import com.art5019.afrobrazilities.data.FortuneHelper;
+import com.art5019.afrobrazilities.utils.FortuneHelper;
 import com.art5019.afrobrazilities.data.Fortunes;
-import net.minecraft.client.gui.font.glyphs.BakedGlyph;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
