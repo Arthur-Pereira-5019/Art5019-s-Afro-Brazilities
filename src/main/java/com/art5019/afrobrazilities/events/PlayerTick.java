@@ -26,7 +26,6 @@ public class PlayerTick {
         if(!l.isClientSide) {
             if(l.getGameTime() % 1000 == 0) {
                 List<Fortunes> fortunesOfToday = FortuneHelper.fortunesToday(p);
-                //fortunesOfToday.forEach(System.out::println);
                 if(fortunesOfToday.contains(Fortunes.LUCK_INCREASE)) {
                     p.addEffect(new MobEffectInstance(MobEffects.LUCK, 24000, 0));
                     FortuneHelper.removeFortuneOfToday(p,Fortunes.LUCK_INCREASE);

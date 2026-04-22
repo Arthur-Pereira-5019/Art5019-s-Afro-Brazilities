@@ -26,6 +26,8 @@
   "art5019afrobrazilities.fortune.full.extra_profits": "Day %s is great day for doing commerce.",
   "art5019afrobrazilities.fortune.full.strong_enemy": "Someone really strong will meet you at day %s, act with precaution.",
   "art5019afrobrazilities.fortune.full.message": "Be sure to listen to your spiritual guides at day %s, they will tell you something important.",
+  "art5019afrobrazilities.fortune.full.judgement": "Make sure to have a clean heart at day %s as Sango will be your judge.",
+  "art5019afrobrazilities.fortune.full.mining_luck": "Riches from the depths of Earth are expected to be on your path at day %s.",
 
   "art5019afrobrazilities.fortune.name.nothing": "No special fate",
   "art5019afrobrazilities.fortune.name.luck_fishing": "Lucky fishing",
@@ -41,6 +43,8 @@
   "art5019afrobrazilities.fortune.name.health_problem": "Health problems",
   "art5019afrobrazilities.fortune.name.extra_profits": "Profits",
   "art5019afrobrazilities.fortune.name.strong_enemy": "Strong adversary",
+  "art5019afrobrazilities.fortune.name.judgement": "Judgement",
+  "art5019afrobrazilities.fortune.name.mining_luck": "Mining Luck",
 
   "art5019afrobrazilities.entity.babalorisa": "Babalorisa",
   "art5019afrobrazilities.entity.babalorisa.np2": "I see, you want to see your future, but some drowneds have stealed my set of conchs, help me to find them, I need 16 of them.",
