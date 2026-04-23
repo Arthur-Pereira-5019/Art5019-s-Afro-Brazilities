@@ -18,7 +18,7 @@ import java.util.Random;
 
 import static com.art5019.afrobrazilities.Art5019sAfrobrazilities.ATTACHMENT_TYPES;
 import static com.art5019.afrobrazilities.Art5019sAfrobrazilities.MODID;
-import static com.art5019.afrobrazilities.data.FortuneDataAttachment.FORTUNE;
+import static com.art5019.afrobrazilities.data.DataAttachments.FORTUNE;
 import static com.art5019.afrobrazilities.items.BuzioConch.BUZIO_CONCH;
 
 @Mod(MODID)

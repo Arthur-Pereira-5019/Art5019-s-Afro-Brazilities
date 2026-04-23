@@ -10,7 +10,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
-import static com.art5019.afrobrazilities.data.FortuneDataAttachment.FORTUNE;
+import static com.art5019.afrobrazilities.data.DataAttachments.*;
 
 public class FortuneHelper {
     private static int totalWeight;
@@ -27,7 +27,6 @@ public class FortuneHelper {
                 f = generateRandomFortune(p);
             }
             var data = p.getData(FORTUNE);
-            //data.add(new FortuneRecord(f.getId(), day + r.nextInt(1, 90), false));
             data.add(new FortuneRecord(f.getId(), day + r.nextInt(1, 3), false));
             p.setData(FORTUNE, data);
         }
@@ -58,6 +57,8 @@ public class FortuneHelper {
     private static float testAse(Player p) {
         float ase = 0;
         ase += p.getLuck();
+        ase += p.getData(ASE)/4.0F;
+        ase += p.getData(KARMA)/10.0F;
         return ase;
     }
 
@@ -82,7 +83,6 @@ public class FortuneHelper {
         int cW = 0;
         for (Fortunes fortune : fortunes) {
             if (cW > l) {
-                var data = p.getData(FORTUNE);
                 return fortune;
             }
             cW += fortune.getWeigth();
@@ -91,12 +91,8 @@ public class FortuneHelper {
     }
 
     public static void removeFortuneOfToday(Player p, Fortunes f) {
-        //System.out.println(p.level().getGameTime());
-        //System.out.println((int) (p.level().getGameTime() / 24000));
         ArrayList<FortuneRecord> data = new ArrayList<>(p.getData(FORTUNE));
-        //System.out.println(f.toString() + " " + getDay(p.level()) + " " + f.getId());
         data.forEach(x -> {System.out.println(Fortunes.getById(x.fortune()) + " " + x.day() + " " + x.fortune());});
-        //System.out.println(getDay(p.level()) + " " + f.getId());
         data.removeIf(fr -> fr.day() == getDay(p.level()) && fr.fortune() == f.getId());
         p.setData(FORTUNE, data);
         generateFortunes(1,p, p.level());

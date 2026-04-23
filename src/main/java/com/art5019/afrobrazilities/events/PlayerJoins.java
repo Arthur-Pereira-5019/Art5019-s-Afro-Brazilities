@@ -1,5 +1,6 @@
 package com.art5019.afrobrazilities.events;
 
+import com.art5019.afrobrazilities.data.Fortunes;
 import com.art5019.afrobrazilities.utils.FortuneHelper;
 import com.art5019.afrobrazilities.data.FortuneRecord;
 import net.minecraft.world.entity.player.Player;
@@ -11,7 +12,7 @@ import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import java.util.List;
 
 import static com.art5019.afrobrazilities.Art5019sAfrobrazilities.MODID;
-import static com.art5019.afrobrazilities.data.FortuneDataAttachment.*;
+import static com.art5019.afrobrazilities.data.DataAttachments.FORTUNE;
 
 @Mod(MODID)
 @EventBusSubscriber

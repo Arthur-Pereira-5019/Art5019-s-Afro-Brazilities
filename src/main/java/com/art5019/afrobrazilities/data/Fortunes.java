@@ -1,7 +1,6 @@
 package com.art5019.afrobrazilities.data;
 
 public enum Fortunes {
-    //LIMIT = 127
     NOTHING(0, "art5019afrobrazilities.fortune.full.nothing", "art5019afrobrazilities.fortune.name.nothing", 6, 0),
     LUCK_FISHING(1, "art5019afrobrazilities.fortune.full.luck_fishing", "art5019afrobrazilities.fortune.name.luck_fishing",12,3),
     UNLUCK_FISHING(2, "art5019afrobrazilities.fortune.full.bad_fishing", "art5019afrobrazilities.fortune.name.bad_fishing",6,-1),
