@@ -26,7 +26,7 @@ public class FortuneHelper {
             } else {
                 f = generateRandomFortune(p);
             }
-            var data = p.getData(FORTUNE);
+            ArrayList<FortuneRecord> data = new ArrayList<>(p.getData(FORTUNE));
             data.add(new FortuneRecord(f.getId(), day + r.nextInt(1, 3), false));
             p.setData(FORTUNE, data);
         }
@@ -34,9 +34,15 @@ public class FortuneHelper {
     }
 
     public static List<Fortunes> fortunesToday(Player p) {
-        List<FortuneRecord> fortuneRecords = p.getData(FORTUNE);
+        int day = getDay(p.level());
+        /*if(!p.getData(PATCHED_TODAY)) {
+            p.setData(PATCHED_TODAY,true);
+        }*/
+        ArrayList<FortuneRecord> fortuneRecords = new ArrayList<>(p.getData(FORTUNE));
         List<Fortunes> fortunes = new ArrayList<>();
-        fortuneRecords = fortuneRecords.stream().filter(fortune -> fortune.day() == getDay(p.level())).toList();
+        fortuneRecords.removeIf(f -> f.day() < day);
+        p.setData(FORTUNE,fortuneRecords);
+        fortuneRecords = new ArrayList<>(fortuneRecords.stream().filter(fortune -> fortune.day() == day).toList());
         fortuneRecords.forEach(f -> {fortunes.add(Fortunes.getById(f.fortune()));});
         return fortunes;
     }
@@ -92,10 +98,20 @@ public class FortuneHelper {
 
     public static void removeFortuneOfToday(Player p, Fortunes f) {
         ArrayList<FortuneRecord> data = new ArrayList<>(p.getData(FORTUNE));
-        data.forEach(x -> {System.out.println(Fortunes.getById(x.fortune()) + " " + x.day() + " " + x.fortune());});
         data.removeIf(fr -> fr.day() == getDay(p.level()) && fr.fortune() == f.getId());
         p.setData(FORTUNE, data);
         generateFortunes(1,p, p.level());
+    }
+
+    public static void patchYesterdayFortunes(Player p) {
+        ArrayList<FortuneRecord> data = new ArrayList<>(p.getData(FORTUNE));
+        for(FortuneRecord fr: data) {
+            if(fr.day() < getDay(p.level())) {
+                data.remove(fr);
+                generateFortunes(1,p, p.level());
+            }
+        }
+        p.setData(FORTUNE, data);
     }
 
 
