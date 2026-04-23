@@ -35,9 +35,6 @@ public class PlayerTick {
                 } else if(fortunesOfToday.contains(Fortunes.EXTRA_PROFITS)) {
                     p.addEffect(new MobEffectInstance(MobEffects.HERO_OF_THE_VILLAGE, 24000, 0));
                     FortuneHelper.removeFortuneOfToday(p,Fortunes.EXTRA_PROFITS);
-                } else if(fortunesOfToday.contains(Fortunes.LUCK_FIGHT)) {
-                    p.addEffect(new MobEffectInstance(MobEffects.STRENGTH, 24000, 0));
-                    FortuneHelper.removeFortuneOfToday(p,Fortunes.LUCK_FIGHT);
                 } else if(fortunesOfToday.contains(Fortunes.NOTHING)) {
                     FortuneHelper.removeFortuneOfToday(p,Fortunes.NOTHING);
                 }
