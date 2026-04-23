@@ -88,10 +88,10 @@ public class FortuneHelper {
         int l = r.nextInt(0,totalWeight);
         int cW = 0;
         for (Fortunes fortune : fortunes) {
+            cW += fortune.getWeigth();
             if (cW > l) {
                 return fortune;
             }
-            cW += fortune.getWeigth();
         }
         return Fortunes.NOTHING;
     }
