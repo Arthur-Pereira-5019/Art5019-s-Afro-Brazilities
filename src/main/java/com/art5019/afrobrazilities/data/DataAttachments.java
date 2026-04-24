@@ -41,8 +41,8 @@ public class DataAttachments {
             "ase", () -> AttachmentType.builder(() -> 0).serialize(Codec.INT.fieldOf("ase")).build()
     );
 
-    public static final Supplier<AttachmentType<Boolean>> PATCHED_TODAY = ATTACHMENT_TYPES.register(
-            "patched_today", () -> AttachmentType.builder(() -> false).serialize(Codec.BOOL.fieldOf("patch")).build()
+    public static final Supplier<AttachmentType<Integer>> SPIRITUAL_PROTECTION = ATTACHMENT_TYPES.register(
+            "spiritual_protection", () -> AttachmentType.builder(() -> 0).serialize(Codec.INT.fieldOf("spiritual_protection")).build()
     );
 
 }
