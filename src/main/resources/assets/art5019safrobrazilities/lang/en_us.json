@@ -12,6 +12,9 @@
   "art5019safrobrazilities.configuration.magicNumberIntroduction": "Magic Number Text",
   "art5019safrobrazilities.configuration.magicNumber": "Magic Number",
 
+  "death.attack.peaceful_death": "%s died peacefully",
+  "death.attack.painful_death": "%s agonized until death",
+
   "art5019afrobrazilities.fortune.full.nothing": "As it seems, nothing will happen at %s",
   "art5019afrobrazilities.fortune.full.luck_fishing": "Treasures await you at the seas and rivers in %s.",
   "art5019afrobrazilities.fortune.full.bad_fishing": "Avoid rivers and beaches at day %s.",

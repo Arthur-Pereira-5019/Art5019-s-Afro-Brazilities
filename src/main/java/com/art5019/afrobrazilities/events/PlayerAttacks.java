@@ -76,7 +76,7 @@ public class PlayerAttacks {
                         container.setNewDamage(0);
                         if(!l.isClientSide) {
                             ServerLevel sl = (ServerLevel) l;
-                            e.hurtServer(sl,sl.damageSources().magic(),oldDamage/3);
+                            e.hurtServer(sl,container.getSource(),oldDamage/3);
                             sl.playLocalSound(e.blockPosition(), SoundEvents.EGG_THROW, SoundSource.PLAYERS,0.8F,1,false);
                             sl.sendParticles(
                                     ParticleTypes.GUST,

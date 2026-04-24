@@ -2,7 +2,7 @@ package com.art5019.afrobrazilities.events;
 
 import com.art5019.afrobrazilities.utils.FortuneHelper;
 import com.art5019.afrobrazilities.data.Fortunes;
-import com.art5019.afrobrazilities.utils.SpiritualProtectionHelper;
+import com.art5019.afrobrazilities.utils.SpiritualHelper;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Random;
 
 import static com.art5019.afrobrazilities.Art5019sAfrobrazilities.MODID;
+import static com.art5019.afrobrazilities.damages.DamageTypes.PAINFUL_DEATH;
 import static com.art5019.afrobrazilities.damages.DamageTypes.PEACEFUL_DEATH;
 
 @Mod(MODID)
@@ -28,13 +29,18 @@ public class PlayerTick {
         Player p = event.getEntity();
         Level l = p.level();
         Random r = new Random();
-        float sp = SpiritualProtectionHelper.testSpiritualProtection(p);
+        float sp = SpiritualHelper.testSpiritualProtection(p);
+        float k =  SpiritualHelper.testKarma(p);
         if(!l.isClientSide) {
             if(l.getGameTime() % 1000 == 0) {
                 List<Fortunes> fortunesOfToday = FortuneHelper.fortunesToday(p);
                 if(fortunesOfToday.contains(Fortunes.DEATH)) {
                     if(r.nextInt(0,10) < 10/(sp+1)) {
-                        p.hurtServer((ServerLevel) l,l.damageSources().source(PEACEFUL_DEATH),20 - sp*2);
+                        if(k >= 0) {
+                            p.hurtServer((ServerLevel) l,l.damageSources().source(PEACEFUL_DEATH),20 - sp*2);
+                        } else {
+                            p.hurtServer((ServerLevel) l,l.damageSources().source(PAINFUL_DEATH),20 - sp*2);
+                        }
                     }
                 }
                 if(fortunesOfToday.contains(Fortunes.LUCK_INCREASE)) {
@@ -53,4 +59,5 @@ public class PlayerTick {
         }
 
     }
+
 }

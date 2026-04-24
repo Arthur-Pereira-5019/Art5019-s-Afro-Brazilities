@@ -17,6 +17,10 @@ public class FortuneHelper {
     private static List<Fortunes> fortunes;
     private static Random r = new Random();
     public static void generateFortunes(int times, Player p, Level level) {
+        ArrayList<FortuneRecord> data = new ArrayList<>(p.getData(FORTUNE));
+        if(data.size() > 49) {
+            return;
+        }
         int day = getDay(level);
         float ase = testAse(p);
         for(int i = 0; i < times; i++) {
@@ -26,7 +30,6 @@ public class FortuneHelper {
             } else {
                 f = generateRandomFortune(p);
             }
-            ArrayList<FortuneRecord> data = new ArrayList<>(p.getData(FORTUNE));
             data.add(new FortuneRecord(f.getId(), day + r.nextInt(1, 3), false));
             p.setData(FORTUNE, data);
         }
@@ -34,11 +37,8 @@ public class FortuneHelper {
     }
 
     public static List<Fortunes> fortunesToday(Player p) {
-        int day = getDay(p.level());
-        /*if(!p.getData(PATCHED_TODAY)) {
-            p.setData(PATCHED_TODAY,true);
-        }*/
         ArrayList<FortuneRecord> fortuneRecords = new ArrayList<>(p.getData(FORTUNE));
+        int day = getDay(p.level());
         List<Fortunes> fortunes = new ArrayList<>();
         fortuneRecords.removeIf(f -> f.day() < day);
         p.setData(FORTUNE,fortuneRecords);
