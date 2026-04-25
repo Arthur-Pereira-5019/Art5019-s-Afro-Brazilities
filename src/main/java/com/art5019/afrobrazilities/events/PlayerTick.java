@@ -2,6 +2,7 @@ package com.art5019.afrobrazilities.events;
 
 import com.art5019.afrobrazilities.utils.FortuneHelper;
 import com.art5019.afrobrazilities.data.Fortunes;
+import com.art5019.afrobrazilities.utils.GuideHelper;
 import com.art5019.afrobrazilities.utils.SpiritualHelper;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -37,20 +38,23 @@ public class PlayerTick {
             ServerLevel sl = (ServerLevel) l;
             if(l.getGameTime() % 1000 == 0) {
                 List<Fortunes> fortunesOfToday = FortuneHelper.fortunesToday(p);
-                if(fortunesOfToday.contains(Fortunes.JUDGEMENT)) {
-                    SpiritualHelper.addAse(p, (int) k/10);
+                if (fortunesOfToday.contains(Fortunes.JUDGEMENT)) {
+                    SpiritualHelper.addAse(p, (int) k / 10);
                     l.playSound(null, p.blockPosition(), SoundEvents.LIGHTNING_BOLT_THUNDER, SoundSource.MASTER, 2F, 1);
-                    //FortuneHelper.removeFortuneOfToday(p,Fortunes.JUDGEMENT);
-                } else if(fortunesOfToday.contains(Fortunes.DEATH)) {
-                    if(r.nextInt(0,10) < 10/(sp+1)) {
-                        if(k >= 0) {
-                            p.hurtServer(sl,l.damageSources().source(PEACEFUL_DEATH),20 - sp*2);
+                    FortuneHelper.removeFortuneOfToday(p, Fortunes.JUDGEMENT);
+                } else if (fortunesOfToday.contains(Fortunes.DEATH)) {
+                    if (r.nextInt(0, 10) < 10 / (sp + 1)) {
+                        if (k >= 0) {
+                            p.hurtServer(sl, l.damageSources().source(PEACEFUL_DEATH), 20 - sp * 2);
                         } else {
-                            p.hurtServer(sl,l.damageSources().source(PAINFUL_DEATH),20 - sp*2);
+                            p.hurtServer(sl, l.damageSources().source(PAINFUL_DEATH), 20 - sp * 2);
                         }
                     }
                 }
-                if(fortunesOfToday.contains(Fortunes.LUCK_INCREASE)) {
+                if(fortunesOfToday.contains(Fortunes.MESSAGE_FROM_YOUR_GUIDES)) {
+                    GuideHelper.messageProvider(p);
+                    FortuneHelper.removeFortuneOfToday(p,Fortunes.LUCK_INCREASE);
+                } else if(fortunesOfToday.contains(Fortunes.LUCK_INCREASE)) {
                     p.addEffect(new MobEffectInstance(MobEffects.LUCK, 24000, 0));
                     FortuneHelper.removeFortuneOfToday(p,Fortunes.LUCK_INCREASE);
                 } else if(fortunesOfToday.contains(Fortunes.UNLUCK_INCREASE)) {
