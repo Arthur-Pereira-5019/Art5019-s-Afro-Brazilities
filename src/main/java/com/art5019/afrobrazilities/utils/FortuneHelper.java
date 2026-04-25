@@ -22,7 +22,7 @@ public class FortuneHelper {
             return;
         }
         int day = getDay(level);
-        float ase = testAse(p);
+        float ase = SpiritualHelper.testAse(p);
         for(int i = 0; i < times; i++) {
             Fortunes f;
             if(Math.abs(ase) > 3) {
@@ -60,26 +60,16 @@ public class FortuneHelper {
         totalWeight = x;
     }
 
-    private static float testAse(Player p) {
-        float ase = 0;
-        ase += p.getLuck();
-        ase += p.getData(ASE)/4.0F;
-        ase += p.getData(KARMA)/10.0F;
-        return ase;
-    }
-
     private static Fortunes optimalOutcome(Player p, int ase) {
-        int iase = ase/4;
+        int iase = Math.abs(ase/4);
         List<Fortunes> fortunesList = new ArrayList<>();
         for(int i = 0; i < iase; i++) {
             fortunesList.add(generateRandomFortune(p));
         }
-        for(int i = 0; i < iase; i++) {
-            if(ase > 0) {
-                fortunesList.sort(Comparator.comparing(Fortunes::getPositiveness));
-            } else {
-                fortunesList.sort(Comparator.comparing(Fortunes::getPositiveness).reversed());
-            }
+        if(ase > 0) {
+            fortunesList.sort(Comparator.comparing(Fortunes::getPositiveness));
+        } else {
+            fortunesList.sort(Comparator.comparing(Fortunes::getPositiveness).reversed());
         }
         return fortunesList.getFirst();
     }
