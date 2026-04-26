@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_four_candles",
+  "textures": {
+    "all": "art5019safrobrazilities:block/two_tone_red_and_black_candle_lit",
+    "particle": "art5019safrobrazilities:block/two_tone_red_and_black_candle_lit"
+  }
+}

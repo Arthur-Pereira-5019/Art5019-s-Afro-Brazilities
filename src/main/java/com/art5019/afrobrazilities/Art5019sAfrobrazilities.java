@@ -48,7 +48,7 @@ public class Art5019sAfrobrazilities {
 
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
-            .title(Component.translatable("itemGroup.art5019safrobrazilities")) //The language key for the title of your CreativeModeTab
+            .title(Component.translatable("itemGroup.art5019safrobrazilities"))
             .withTabsBefore(CreativeModeTabs.COMBAT)
             .icon(() -> BUZIO_CONCH.get().getDefaultInstance())
             .displayItems((parameters, output) -> {

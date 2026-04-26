@@ -1,6 +1,5 @@
 package com.art5019.afrobrazilities.events;
 
-import com.art5019.afrobrazilities.data.FortuneDataAttachment;
 import com.art5019.afrobrazilities.data.FortuneRecord;
 import com.art5019.afrobrazilities.data.Fortunes;
 import com.art5019.afrobrazilities.items.BuzioConch;
@@ -19,7 +18,6 @@ import java.util.Random;
 
 import static com.art5019.afrobrazilities.Art5019sAfrobrazilities.LOGGER;
 import static com.art5019.afrobrazilities.Art5019sAfrobrazilities.MODID;
-import static com.art5019.afrobrazilities.data.FortuneDataAttachment.*;
 
 @Mod(MODID)
 @EventBusSubscriber

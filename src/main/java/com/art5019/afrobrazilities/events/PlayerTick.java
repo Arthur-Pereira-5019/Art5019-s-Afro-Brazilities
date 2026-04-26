@@ -53,7 +53,7 @@ public class PlayerTick {
                 }
                 if(fortunesOfToday.contains(Fortunes.MESSAGE_FROM_YOUR_GUIDES)) {
                     GuideHelper.messageProvider(p);
-                    FortuneHelper.removeFortuneOfToday(p,Fortunes.LUCK_INCREASE);
+                    FortuneHelper.removeFortuneOfToday(p,Fortunes.MESSAGE_FROM_YOUR_GUIDES);
                 } else if(fortunesOfToday.contains(Fortunes.LUCK_INCREASE)) {
                     p.addEffect(new MobEffectInstance(MobEffects.LUCK, 24000, 0));
                     FortuneHelper.removeFortuneOfToday(p,Fortunes.LUCK_INCREASE);
