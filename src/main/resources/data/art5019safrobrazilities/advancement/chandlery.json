@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:candle"
+    },
+    "title": {
+      "translate": "advancements.art5019safrobrazilities.chandlery.title"
+    },
+    "description": {
+      "translate": "advancements.art5019safrobrazilities.chandlery.description"
+    }
+  },
+  "parent": "minecraft:husbandry/safely_harvest_honey",
+  "criteria": {
+    "1": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "minecraft:candle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "1"
+    ]
+  ],
+  "rewards": {
+    "experience": 3,
+    "recipes": [
+      "art5019safrobrazilities:two_tone_red_and_black_candle"
+    ]
+  }
+}

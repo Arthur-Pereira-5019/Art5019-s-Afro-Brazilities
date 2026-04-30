@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "id": "art5019safrobrazilities:two_tone_red_and_black_candle"
+    },
+    "title": {
+      "translate": "advancements.art5019safrobrazilities.fervent_chandlery.title"
+    },
+    "description": {
+      "translate": "advancements.art5019safrobrazilities.fervent_chandlery.description"
+    }
+  },
+  "parent": "art5019safrobrazilities:chandlery",
+  "criteria": {
+    "1": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "art5019safrobrazilities:two_tone_red_and_black_candle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "1"
+    ]
+  ],
+  "rewards": {
+    "experience": 7
+  }
+}

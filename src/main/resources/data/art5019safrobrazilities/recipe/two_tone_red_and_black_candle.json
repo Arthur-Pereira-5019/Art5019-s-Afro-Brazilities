@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "dyed_candle",
+  "ingredients": [
+    "minecraft:candle",
+    "minecraft:candle",
+    "minecraft:red_dye",
+    "minecraft:black_dye"
+  ],
+  "result": {
+    "count": 2,
+    "id": "art5019safrobrazilities:two_tone_red_and_black_candle"
+  }
+}

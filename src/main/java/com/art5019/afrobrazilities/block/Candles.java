@@ -3,6 +3,8 @@ package com.art5019.afrobrazilities.block;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CandleBlock;
 import net.minecraft.world.level.block.CandleCakeBlock;
@@ -12,9 +14,9 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredItem;
 
-import static com.art5019.afrobrazilities.Art5019sAfrobrazilities.BLOCKS;
-import static com.art5019.afrobrazilities.Art5019sAfrobrazilities.MODID;
+import static com.art5019.afrobrazilities.Art5019sAfrobrazilities.*;
 
 @Mod(MODID)
 public class Candles {
@@ -33,4 +35,10 @@ public class Candles {
                 .lightLevel(CandleBlock.LIGHT_EMISSION)
                 .pushReaction(PushReaction.DESTROY);
     }
+
+    public static final DeferredItem<BlockItem> TWO_TONE_RED_AND_BLACK_CANDLE_ITEM = ITEMS.registerSimpleBlockItem(
+            "two_tone_red_and_black_candle",
+            TWO_TONE_RED_AND_BLACK_CANDLE,
+            new Item.Properties()
+    );
 }

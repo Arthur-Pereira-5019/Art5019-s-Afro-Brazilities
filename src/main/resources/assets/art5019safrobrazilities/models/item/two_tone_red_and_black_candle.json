@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "art5019safrobrazilities:item/two_tone_red_and_black_candle"
+  }
+}

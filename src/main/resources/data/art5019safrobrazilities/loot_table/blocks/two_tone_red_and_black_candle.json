@@ -1,0 +1,63 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "art5019safrobrazilities:two_tone_red_and_black_candle",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "candles": "2"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "art5019safrobrazilities:two_tone_red_and_black_candle",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "candles": "3"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "art5019safrobrazilities:two_tone_red_and_black_candle",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "candles": "4"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "art5019safrobrazilities:two_tone_red_and_black_candle"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "art5019safrobrazilities:blocks/two_tone_red_and_black_candle"
+}
