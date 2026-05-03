@@ -55,7 +55,7 @@ public class FortuneHelper {
         fortunes = List.of(Fortunes.values());
         int x = 0;
         for(Fortunes f: fortunes) {
-            x+= f.getWeigth();
+            x+= f.getWeight();
         }
         totalWeight = x;
     }
@@ -78,7 +78,7 @@ public class FortuneHelper {
         int l = r.nextInt(0,totalWeight);
         int cW = 0;
         for (Fortunes fortune : fortunes) {
-            cW += fortune.getWeigth();
+            cW += fortune.getWeight();
             if (cW > l) {
                 return fortune;
             }

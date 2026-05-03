@@ -2,11 +2,13 @@ package com.art5019.afrobrazilities.events;
 
 import com.art5019.afrobrazilities.data.Fortunes;
 import com.art5019.afrobrazilities.utils.FortuneHelper;
+import com.art5019.afrobrazilities.utils.SpiritualHelper;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
@@ -78,8 +80,13 @@ public class PlayerAttacks {
                         }
                         FortuneHelper.removeFortuneOfToday((Player) e,Fortunes.UNLUCK_FIGHT);
                     }
+                }
+            }
+        } else if (t instanceof Player) {
+            float sp = SpiritualHelper.testSpiritualProtection((Player) t);
+            if(source.is(DamageTypes.MAGIC)) {
+                container.setNewDamage(container.getOriginalDamage()-(0.3F*sp));
             }
         }
-            }
     }
 }
