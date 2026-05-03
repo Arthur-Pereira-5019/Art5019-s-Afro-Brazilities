@@ -23,8 +23,7 @@ import static com.art5019.afrobrazilities.Art5019sAfrobrazilities.MODID;
 public class PlayerEats {
     @SubscribeEvent
     public static void playerEats(LivingEntityUseItemEvent.Finish e) {
-        if(e.getEntity() instanceof Player) {
-            Player p = (Player) e.getEntity();
+        if(e.getEntity() instanceof Player p) {
             if (e.getItem().has(DataComponents.FOOD)) {
                 if (FortuneHelper.fortunesToday(p).contains(Fortunes.BETRAYAL))
                     p.addEffect(new MobEffectInstance(MobEffects.WITHER, 340, 2));
