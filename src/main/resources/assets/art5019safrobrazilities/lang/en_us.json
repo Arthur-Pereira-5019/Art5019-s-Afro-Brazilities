@@ -1,5 +1,6 @@
 {
   "itemGroup.art5019safrobrazilities": "Example Mod Tab",
+  "item.art5019safrobrazilities.osun_honey": "Osun's Honey",
   "item.art5019safrobrazilities.buzio_conch": "Buzio Conch",
   "block.art5019safrobrazilities.two_tone_red_and_black_candle": "Two-Tone Red and Black Candle",
 
@@ -13,15 +14,19 @@
 
   "advancements.art5019safrobrazilities.chandlery.title": "Chandlery",
   "advancements.art5019safrobrazilities.chandlery.description": "Make your first Candle",
-
   "advancements.art5019safrobrazilities.fervent_chandlery.title": "Fervent Chandlery",
   "advancements.art5019safrobrazilities.fervent_chandlery.description": "Make a two-tone Candle",
+  "advancements.art5019safrobrazilities.gold_fishing.title": "Gold Fishing",
+  "advancements.art5019safrobrazilities.gold_fishing.description": "Fish on a river while blessed by Osun",
+  "advancements.art5019safrobrazilities.new_mansa.title": "New Mansa",
+  "advancements.art5019safrobrazilities.new_mansa.description": "Obtain an Raw Gold Block by fishing.",
 
   "death.attack.peaceful_death": "%s died peacefully",
   "death.attack.painful_death": "%s agonized until death",
 
   "art5019afrobrazilities.fortune.full.nothing": "As it seems, nothing will happen at %s",
-  "art5019afrobrazilities.fortune.full.luck_fishing": "Treasures await you at the seas and rivers in %s.",
+  "art5019afrobrazilities.fortune.full.luck_fishing": "Treasures await you at the seas in %s.",
+  "art5019afrobrazilities.fortune.full.luck_fishing_2": "Treasures await you at the rivers in %s.",
   "art5019afrobrazilities.fortune.full.bad_fishing": "Avoid rivers and beaches at day %s.",
   "art5019afrobrazilities.fortune.full.fight_luck": "On day %s, Ogun strength and power will be bestowed upon you.",
   "art5019afrobrazilities.fortune.full.unluck_fight": "When challenged to fight at day %s, don't engage on the conflict, or else you may suffer bad consequences.",
@@ -38,7 +43,8 @@
   "art5019afrobrazilities.fortune.full.mining_luck": "Riches from the depths of Earth are expected to be on your path at day %s.",
 
   "art5019afrobrazilities.fortune.name.nothing": "No special fate",
-  "art5019afrobrazilities.fortune.name.luck_fishing": "Lucky fishing",
+  "art5019afrobrazilities.fortune.name.luck_fishing": "Lucky ocean fishing",
+  "art5019afrobrazilities.fortune.name.luck_fishing_2": "Lucky river fishing",
   "art5019afrobrazilities.fortune.name.bad_fishing": "Unlucky fishing",
   "art5019afrobrazilities.fortune.name.fight_luck": "Great strength",
   "art5019afrobrazilities.fortune.name.unluck_fight": "Stronger enemies",

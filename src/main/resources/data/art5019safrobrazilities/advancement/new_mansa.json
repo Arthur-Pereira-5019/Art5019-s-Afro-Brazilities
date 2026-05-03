@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:raw_gold_block"
+    },
+    "title": {
+      "translate": "advancements.art5019safrobrazilities.new_mansa.title"
+    },
+    "description": {
+      "translate": "advancements.art5019safrobrazilities.new_mansa.description"
+    },
+    "frame": "challenge",
+    "hidden": true
+  },
+  "parent": "art5019safrobrazilities:gold_fishing",
+  "criteria": {
+    "1": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "1"
+    ]
+  ],
+  "rewards": {
+    "experience": 23,
+    "recipes": []
+  }
+}

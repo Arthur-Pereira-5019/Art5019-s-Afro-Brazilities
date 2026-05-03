@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:gold_nugget"
+    },
+    "title": {
+      "translate": "advancements.art5019safrobrazilities.gold_fishing.title"
+    },
+    "description": {
+      "translate": "advancements.art5019safrobrazilities.gold_fishing.description"
+    },
+    "frame": "goal"
+  },
+  "parent": "minecraft:husbandry/fishy_business",
+  "criteria": {
+    "1": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "1"
+    ]
+  ],
+  "rewards": {
+    "experience": 13,
+    "recipes": []
+  }
+}

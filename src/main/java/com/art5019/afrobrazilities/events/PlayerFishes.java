@@ -2,7 +2,15 @@ package com.art5019.afrobrazilities.events;
 
 import com.art5019.afrobrazilities.data.Fortunes;
 import com.art5019.afrobrazilities.utils.FortuneHelper;
+import net.minecraft.advancements.Advancement;
+import net.minecraft.advancements.AdvancementHolder;
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -12,6 +20,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.FishingHook;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -28,6 +37,7 @@ import java.io.IOException;
 import java.util.List;
 
 import static com.art5019.afrobrazilities.Art5019sAfrobrazilities.MODID;
+import static com.art5019.afrobrazilities.loot.FishingLoot.OSUN_FISHING;
 import static net.minecraft.world.item.Items.*;
 
 @Mod(MODID)
@@ -39,6 +49,7 @@ public class PlayerFishes {
         Level level = p.level();
         FishingHook fh = event.getHookEntity();
         List<Fortunes> ft = FortuneHelper.fortunesToday(p);
+        Holder<Biome> b = level.getBiome(fh.blockPosition());
         if(ft.contains(Fortunes.UNLUCK_FISHING)) {
             Drowned drowned = new Drowned(EntityType.DROWNED,level);
             drowned.setPos(fh.position());
@@ -55,23 +66,50 @@ public class PlayerFishes {
             drowned.setDeltaMovement(d0 * 0.1, d1 * 0.1 + Math.sqrt(Math.sqrt(d0 * d0 + d1 * d1 + d2 * d2)) * 0.08, d2 * 0.1);
             level.addFreshEntity(drowned);
             FortuneHelper.removeFortuneOfToday(p,Fortunes.UNLUCK_FISHING);
-        } else if(ft.contains(Fortunes.LUCK_FISHING)) {
+        } else if(b.is(BiomeTags.IS_OCEAN) || b.is(BiomeTags.IS_BEACH) && ft.contains(Fortunes.LUCK_FISHING_1)) {
+                LootParams lootparams = new LootParams.Builder((ServerLevel) level)
+                        .withParameter(LootContextParams.ORIGIN, fh.position())
+                        .withParameter(LootContextParams.TOOL, p.getItemInHand(InteractionHand.MAIN_HAND))
+                        .withParameter(LootContextParams.THIS_ENTITY, fh)
+                        .withParameter(LootContextParams.ATTACKING_ENTITY, p)
+                        .withLuck(7 + 3 * p.getLuck())
+                        .create(LootContextParamSets.FISHING);
+                LootTable loottable = level.getServer().reloadableRegistries().getLootTable(BuiltInLootTables.FISHING);
+                List<ItemStack> list = loottable.getRandomItems(lootparams);
+                ItemEntity itementity = new ItemEntity(level, fh.getX(), fh.getY(), fh.getZ(), list.getFirst());
+                double d0 = p.getX() - fh.getX();
+                double d1 = p.getY() - fh.getY();
+                double d2 = p.getZ() - fh.getZ();
+                itementity.setDeltaMovement(d0 * 0.2, d1 * 0.2 + Math.sqrt(Math.sqrt(d0 * d0 + d1 * d1 + d2 * d2)) * 0.16, d2 * 0.2);
+                level.addFreshEntity(itementity);
+        } else if(b.is(BiomeTags.IS_RIVER) && ft.contains(Fortunes.LUCK_FISHING_2)) {
+            AdvancementHolder gf = level.getServer()
+                    .getAdvancements()
+                    .get(ResourceLocation.fromNamespaceAndPath("art5019safrobrazilities", "gold_fishing"));
+            ServerPlayer p1 = (ServerPlayer) p;
+            p1.getAdvancements().award(gf,"1");
+            AdvancementHolder nm = level.getServer()
+                    .getAdvancements()
+                    .get(ResourceLocation.fromNamespaceAndPath("art5019safrobrazilities", "new_mansa"));
             LootParams lootparams = new LootParams.Builder((ServerLevel) level)
                     .withParameter(LootContextParams.ORIGIN, fh.position())
                     .withParameter(LootContextParams.TOOL, p.getItemInHand(InteractionHand.MAIN_HAND))
                     .withParameter(LootContextParams.THIS_ENTITY, fh)
                     .withParameter(LootContextParams.ATTACKING_ENTITY, p)
-                    .withLuck(7 + 3*p.getLuck())
+                    .withLuck(7 + 3 * p.getLuck())
                     .create(LootContextParamSets.FISHING);
-            LootTable loottable = level.getServer().reloadableRegistries().getLootTable(BuiltInLootTables.FISHING);
+            LootTable loottable = level.getServer().reloadableRegistries().getLootTable(OSUN_FISHING);
             List<ItemStack> list = loottable.getRandomItems(lootparams);
-            ItemEntity itementity = new ItemEntity(level,fh.getX(),fh.getY(),fh.getZ(),list.getFirst());
+            ItemStack i = list.getFirst();
+            if(i.is(RAW_GOLD_BLOCK)) {
+                p1.getAdvancements().award(nm,"1");
+            }
+            ItemEntity itementity = new ItemEntity(level, fh.getX(), fh.getY(), fh.getZ(), list.getFirst());
             double d0 = p.getX() - fh.getX();
             double d1 = p.getY() - fh.getY();
             double d2 = p.getZ() - fh.getZ();
             itementity.setDeltaMovement(d0 * 0.2, d1 * 0.2 + Math.sqrt(Math.sqrt(d0 * d0 + d1 * d1 + d2 * d2)) * 0.16, d2 * 0.2);
             level.addFreshEntity(itementity);
         }
-
     }
 }
