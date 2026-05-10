@@ -10,6 +10,9 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
+import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -23,6 +26,7 @@ import java.util.List;
 import java.util.Random;
 
 import static com.art5019.afrobrazilities.Art5019sAfrobrazilities.MODID;
+import static net.minecraft.world.entity.EntityType.ENDER_DRAGON;
 
 @Mod(MODID)
 @EventBusSubscriber()
@@ -86,6 +90,15 @@ public class PlayerAttacks {
             float sp = SpiritualHelper.testSpiritualProtection((Player) t);
             if(source.is(DamageTypes.MAGIC)) {
                 container.setNewDamage(container.getOriginalDamage()-(0.3F*sp));
+            }
+            if(source.getDirectEntity() != null) {
+                if(source.getDirectEntity() instanceof LivingEntity) {
+                    LivingEntity se = (LivingEntity) source.getDirectEntity();
+                    if(se.getMaxHealth() > 150) {
+                        FortuneHelper.removeFortuneOfToday((Player) t,Fortunes.STRONG_ENEMY);
+                    }
+                }
+
             }
         }
     }
