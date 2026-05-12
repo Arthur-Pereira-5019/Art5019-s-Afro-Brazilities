@@ -84,6 +84,15 @@ public class PlayerTick {
                             p.hurtServer(sl, l.damageSources().source(PAINFUL_DEATH), 20 - sp * 2);
                         }
                     }
+                } else if(fortunesOfToday.contains(Fortunes.HEALTH_PROBLEM)) {
+                    if(r.nextInt(10) < 3) {
+                        p.addEffect(new MobEffectInstance(MobEffects.WITHER, 100, 0));
+                    } else {
+                        p.addEffect(new MobEffectInstance(MobEffects.NAUSEA, 220, 0));
+                    }
+                    if(r.nextInt(10) < 4) {
+                        FortuneHelper.removeFortuneOfToday(p,Fortunes.HEALTH_PROBLEM);
+                    }
                 } else if(fortunesOfToday.contains(Fortunes.STRONG_ENEMY)) {
                     strongEnemy(p, sl, l);
                 }
@@ -110,8 +119,8 @@ public class PlayerTick {
     private static void strongEnemy(Player p, ServerLevel sl, Level l) {
         boolean spawned = false;
         ChunkPos chunkpos = p.chunkPosition();
-        int i = chunkpos.getMinBlockX()+16;
-        int j = chunkpos.getMinBlockZ()+16;
+        int i = chunkpos.getMinBlockX()+32;
+        int j = chunkpos.getMinBlockZ()+32;
         if(sl.getGameRules().getBoolean(GameRules.RULE_DOMOBSPAWNING)) {
             if (sl.dimension() == Level.OVERWORLD) {
                 if(l.getDayTime()%24000 > 12000) {

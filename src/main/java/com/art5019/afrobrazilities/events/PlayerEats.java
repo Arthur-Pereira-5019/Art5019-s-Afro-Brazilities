@@ -26,7 +26,7 @@ public class PlayerEats {
         if(e.getEntity() instanceof Player p) {
             if (e.getItem().has(DataComponents.FOOD)) {
                 if (FortuneHelper.fortunesToday(p).contains(Fortunes.BETRAYAL))
-                    p.addEffect(new MobEffectInstance(MobEffects.WITHER, 340, 2));
+                    p.addEffect(new MobEffectInstance(MobEffects.POISON, 340, 2));
                 FortuneHelper.removeFortuneOfToday(p,Fortunes.BETRAYAL);
             }
         }
