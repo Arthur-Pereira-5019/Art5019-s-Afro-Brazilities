@@ -23,6 +23,7 @@ import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LightningBolt;
+import net.minecraft.world.entity.animal.Dolphin;
 import net.minecraft.world.entity.animal.horse.SkeletonHorse;
 import net.minecraft.world.entity.monster.Drowned;
 import net.minecraft.world.entity.monster.EnderMan;
@@ -84,108 +85,7 @@ public class PlayerTick {
                         }
                     }
                 } else if(fortunesOfToday.contains(Fortunes.STRONG_ENEMY)) {
-                    ChunkPos chunkpos = p.chunkPosition();
-                    int i = chunkpos.getMinBlockX()+16;
-                    int j = chunkpos.getMinBlockZ()+16;
-                    if(sl.getGameRules().getBoolean(GameRules.RULE_DOMOBSPAWNING)) {
-                        if (sl.dimension() == Level.OVERWORLD) {
-                            if(l.getDayTime()%24000 > 12000) {
-                                for (int t = 0; t < 10; t++) {
-                                    SkeletonHorse skeletonhorse = EntityType.SKELETON_HORSE.create(sl, EntitySpawnReason.EVENT);
-                                    Zombie zombie = EntityType.ZOMBIE.create(sl, EntitySpawnReason.EVENT);
-                                    Guardian guardian = EntityType.GUARDIAN.create(sl, EntitySpawnReason.EVENT);
-
-                                    BlockPos b = sl.getBlockRandomPos(i,sl.getHeight(Heightmap.Types.WORLD_SURFACE,i,j),j,0);
-                                    Vec3 v3 = new Vec3(b.getX(),sl.getHeight(Heightmap.Types.WORLD_SURFACE,b.getX(),b.getZ()),b.getZ());
-
-                                    skeletonhorse.setPos(v3);
-                                    zombie.setPos(v3);
-                                    guardian.setPos(v3);
-                                    if (sl.isThundering() && EventHooks.checkSpawnPosition(skeletonhorse, sl, EntitySpawnReason.EVENT)) {
-                                        skeletonhorse.setTrap(true);
-                                        skeletonhorse.setAge(0);
-                                        sl.addFreshEntity(skeletonhorse);
-                                        LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(sl, EntitySpawnReason.EVENT);
-                                        if (lightningbolt != null) {
-                                            lightningbolt.snapTo(Vec3.atBottomCenterOf(new Vec3i((int) v3.x, (int) v3.y, (int) v3.z)));
-                                            sl.addFreshEntity(lightningbolt);
-                                        }
-                                        break;
-                                    } else if (sl.getBiome(b).is(BiomeTags.IS_OCEAN) && EventHooks.checkSpawnPosition(guardian, sl, EntitySpawnReason.EVENT)) {
-                                        guardian.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 999999, 1));
-                                        guardian.addEffect(new MobEffectInstance(MobEffects.HEALTH_BOOST, 999999, 10));
-                                        guardian.setPersistenceRequired();
-                                        sl.addFreshEntity(guardian);
-                                        break;
-                                    } else if (EventHooks.checkSpawnPosition(zombie, sl, EntitySpawnReason.EVENT)) {
-                                        zombie.setItemSlot(EquipmentSlot.HEAD, new ItemStack(DIAMOND_HELMET));
-                                        zombie.setItemSlot(EquipmentSlot.CHEST, new ItemStack(DIAMOND_CHESTPLATE));
-                                        zombie.setItemSlot(EquipmentSlot.LEGS, new ItemStack(DIAMOND_LEGGINGS));
-                                        zombie.setItemSlot(EquipmentSlot.FEET, new ItemStack(DIAMOND_BOOTS));
-                                        ItemStack weapon = new ItemStack(DIAMOND_SWORD);
-                                        weapon.enchant(sl.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.SHARPNESS), 3);
-                                        zombie.setItemSlot(EquipmentSlot.MAINHAND, weapon);
-                                        zombie.setDropChance(EquipmentSlot.MAINHAND, 0);
-                                        zombie.setDropChance(EquipmentSlot.CHEST, 0);
-                                        zombie.setDropChance(EquipmentSlot.LEGS, 0);
-                                        zombie.setDropChance(EquipmentSlot.FEET, 0);
-                                        zombie.setPersistenceRequired();
-                                        sl.addFreshEntity(zombie);
-                                        break;
-
-                                    }
-                                }
-                            }
-                        } else if (sl.dimension() == Level.NETHER) {
-                            BlockPos b = sl.getBlockRandomPos(i,(int) p.getY(),j,0);
-                            int radius = 6;
-                            for (BlockPos pos : BlockPos.betweenClosed(
-                                    b.offset(-radius, -radius, -radius),
-                                    b.offset(radius, radius, radius))) {
-
-                                var state = sl.getBlockState(pos);
-                                if (state.isAir()) {
-                                    PiglinBrute piglin = EntityType.PIGLIN_BRUTE.create(sl, EntitySpawnReason.EVENT);
-                                    piglin.setPos(pos.getX(),pos.getY(),pos.getZ());
-                                    if (EventHooks.checkSpawnPosition(piglin, sl, EntitySpawnReason.EVENT)) {
-                                        piglin.setItemSlot(EquipmentSlot.LEGS, new ItemStack(NETHERITE_LEGGINGS));
-                                        ItemStack weapon = new ItemStack(NETHERITE_AXE);
-                                        weapon.enchant(sl.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.THORNS), 3);
-                                        piglin.setItemSlot(EquipmentSlot.MAINHAND, weapon);
-                                        ItemStack plate = new ItemStack(GOLDEN_LEGGINGS);
-                                        plate.enchant(sl.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FIRE_ASPECT), 3);
-                                        piglin.setItemSlot(EquipmentSlot.CHEST, plate);
-                                        ItemStack boots = new ItemStack(GOLDEN_BOOTS);
-                                        boots.enchant(sl.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.SOUL_SPEED), 3);
-                                        piglin.setItemSlot(EquipmentSlot.FEET, boots);
-                                        piglin.setDropChance(EquipmentSlot.MAINHAND, 0);
-                                        piglin.setDropChance(EquipmentSlot.CHEST, 0);
-                                        piglin.setDropChance(EquipmentSlot.LEGS, 0);
-                                        piglin.setDropChance(EquipmentSlot.FEET, 0);
-                                        piglin.setPersistenceRequired();
-                                        sl.addFreshEntity(piglin);
-                                        break;
-                                    }
-                                }
-                            }
-                        } else if (sl.dimension() == Level.END) {
-                            EnderMan enderMan = EntityType.ENDERMAN.create(sl, EntitySpawnReason.EVENT);
-                            for (int t = 0; t < 10; t++) {
-                                BlockPos b = sl.getBlockRandomPos(i,sl.getHeight(Heightmap.Types.WORLD_SURFACE,i,j),j,0);
-                                Vec3 v3 = new Vec3(b.getX(),sl.getHeight(Heightmap.Types.WORLD_SURFACE,b.getX(),b.getZ()),b.getZ());
-                                enderMan.setPos(v3);
-                                if (EventHooks.checkSpawnPosition(enderMan, sl, EntitySpawnReason.EVENT)) {
-                                    enderMan.addEffect(new MobEffectInstance(MobEffects.STRENGTH, 999999, 1));
-                                    enderMan.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 999999, 2));
-                                    enderMan.addEffect(new MobEffectInstance(MobEffects.SPEED, 999999, 2));
-                                    enderMan.setPersistenceRequired();
-                                    sl.addFreshEntity(enderMan);
-                                    enderMan.setTarget(p);
-                                    break;
-                                }
-                            }
-                        }
-                    }
+                    strongEnemy(p, sl, l);
                 }
                 if(fortunesOfToday.contains(Fortunes.MESSAGE_FROM_YOUR_GUIDES)) {
                     GuideHelper.messageProvider(p);
@@ -205,6 +105,131 @@ public class PlayerTick {
             }
         }
 
+    }
+
+    private static void strongEnemy(Player p, ServerLevel sl, Level l) {
+        boolean spawned = false;
+        ChunkPos chunkpos = p.chunkPosition();
+        int i = chunkpos.getMinBlockX()+16;
+        int j = chunkpos.getMinBlockZ()+16;
+        if(sl.getGameRules().getBoolean(GameRules.RULE_DOMOBSPAWNING)) {
+            if (sl.dimension() == Level.OVERWORLD) {
+                if(l.getDayTime()%24000 > 12000) {
+                    for (int t = 0; t < 10; t++) {
+                        SkeletonHorse skeletonhorse = EntityType.SKELETON_HORSE.create(sl, EntitySpawnReason.EVENT);
+                        Zombie zombie = EntityType.ZOMBIE.create(sl, EntitySpawnReason.EVENT);
+                        Drowned drowned = EntityType.DROWNED.create(sl, EntitySpawnReason.EVENT);
+
+                        BlockPos b = sl.getBlockRandomPos(i, sl.getHeight(Heightmap.Types.WORLD_SURFACE,i,j),j,0);
+                        Vec3 v3 = new Vec3(b.getX(), sl.getHeight(Heightmap.Types.WORLD_SURFACE,b.getX(),b.getZ()),b.getZ());
+
+                        skeletonhorse.setPos(v3);
+                        zombie.setPos(v3);
+                        drowned.setPos(v3);
+                        if (sl.isThundering() && EventHooks.checkSpawnPosition(skeletonhorse, sl, EntitySpawnReason.EVENT)) {
+                            skeletonhorse.setTrap(true);
+                            skeletonhorse.setAge(0);
+                            sl.addFreshEntity(skeletonhorse);
+                            LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(sl, EntitySpawnReason.EVENT);
+                            if (lightningbolt != null) {
+                                lightningbolt.snapTo(Vec3.atBottomCenterOf(new Vec3i((int) v3.x, (int) v3.y, (int) v3.z)));
+                                sl.addFreshEntity(lightningbolt);
+                            }
+                            spawned = true;
+                            break;
+                        } else if (sl.getBiome(b).is(BiomeTags.IS_OCEAN) && EventHooks.checkSpawnPosition(drowned, sl, EntitySpawnReason.EVENT)) {
+                            Dolphin dolphin = EntityType.DOLPHIN.create(sl, EntitySpawnReason.EVENT);
+                            dolphin.setPos(v3);
+                            drowned.setItemSlot(EquipmentSlot.CHEST, new ItemStack(IRON_CHESTPLATE));
+                            drowned.setItemSlot(EquipmentSlot.LEGS, new ItemStack(IRON_LEGGINGS));
+                            drowned.setItemSlot(EquipmentSlot.FEET, new ItemStack(IRON_BOOTS));
+                            drowned.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(TRIDENT));
+                            drowned.setDropChance(EquipmentSlot.MAINHAND, 0);
+                            drowned.setDropChance(EquipmentSlot.CHEST, 0);
+                            drowned.setDropChance(EquipmentSlot.LEGS, 0);
+                            drowned.setDropChance(EquipmentSlot.FEET, 0);
+                            drowned.setPersistenceRequired();
+                            dolphin.setPersistenceRequired();
+                            sl.addFreshEntity(zombie);
+                            sl.addFreshEntity(dolphin);
+                            drowned.startRiding(dolphin,true);
+                            spawned = true;
+                            break;
+                        } else if (EventHooks.checkSpawnPosition(zombie, sl, EntitySpawnReason.EVENT)) {
+                            zombie.setItemSlot(EquipmentSlot.HEAD, new ItemStack(DIAMOND_HELMET));
+                            zombie.setItemSlot(EquipmentSlot.CHEST, new ItemStack(DIAMOND_CHESTPLATE));
+                            zombie.setItemSlot(EquipmentSlot.LEGS, new ItemStack(DIAMOND_LEGGINGS));
+                            zombie.setItemSlot(EquipmentSlot.FEET, new ItemStack(DIAMOND_BOOTS));
+                            ItemStack weapon = new ItemStack(DIAMOND_SWORD);
+                            weapon.enchant(sl.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.SHARPNESS), 3);
+                            zombie.setItemSlot(EquipmentSlot.MAINHAND, weapon);
+                            zombie.setDropChance(EquipmentSlot.MAINHAND, 0);
+                            zombie.setDropChance(EquipmentSlot.HEAD, 0);
+                            zombie.setDropChance(EquipmentSlot.CHEST, 0);
+                            zombie.setDropChance(EquipmentSlot.LEGS, 0);
+                            zombie.setDropChance(EquipmentSlot.FEET, 0);
+                            zombie.setPersistenceRequired();
+                            sl.addFreshEntity(zombie);
+                            spawned = true;
+                            break;
+                        }
+                    }
+                }
+            } else if (sl.dimension() == Level.NETHER) {
+                BlockPos b = sl.getBlockRandomPos(i,(int) p.getY(),j,0);
+                int radius = 6;
+                for (BlockPos pos : BlockPos.betweenClosed(
+                        b.offset(-radius, -radius, -radius),
+                        b.offset(radius, radius, radius))) {
+                    var state = sl.getBlockState(pos);
+                    if (state.isAir()) {
+                        PiglinBrute piglin = EntityType.PIGLIN_BRUTE.create(sl, EntitySpawnReason.EVENT);
+                        piglin.setPos(pos.getX(),pos.getY(),pos.getZ());
+                        if (EventHooks.checkSpawnPosition(piglin, sl, EntitySpawnReason.EVENT)) {
+                            piglin.setItemSlot(EquipmentSlot.LEGS, new ItemStack(NETHERITE_LEGGINGS));
+                            ItemStack weapon = new ItemStack(NETHERITE_AXE);
+                            weapon.enchant(sl.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.THORNS), 3);
+                            piglin.setItemSlot(EquipmentSlot.MAINHAND, weapon);
+                            ItemStack plate = new ItemStack(GOLDEN_CHESTPLATE);
+                            plate.enchant(sl.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FIRE_ASPECT), 3);
+                            piglin.setItemSlot(EquipmentSlot.CHEST, plate);
+                            ItemStack boots = new ItemStack(GOLDEN_BOOTS);
+                            boots.enchant(sl.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.SOUL_SPEED), 3);
+                            piglin.setItemSlot(EquipmentSlot.FEET, boots);
+                            piglin.setDropChance(EquipmentSlot.MAINHAND, 0);
+                            piglin.setDropChance(EquipmentSlot.HEAD, 0);
+                            piglin.setDropChance(EquipmentSlot.CHEST, 0);
+                            piglin.setDropChance(EquipmentSlot.LEGS, 0);
+                            piglin.setDropChance(EquipmentSlot.FEET, 0);
+                            piglin.setPersistenceRequired();
+                            sl.addFreshEntity(piglin);
+                            spawned = true;
+                            break;
+                        }
+                    }
+                }
+            } else if (sl.dimension() == Level.END) {
+                EnderMan enderMan = EntityType.ENDERMAN.create(sl, EntitySpawnReason.EVENT);
+                for (int t = 0; t < 10; t++) {
+                    BlockPos b = sl.getBlockRandomPos(i, sl.getHeight(Heightmap.Types.WORLD_SURFACE,i,j),j,0);
+                    Vec3 v3 = new Vec3(b.getX(), sl.getHeight(Heightmap.Types.WORLD_SURFACE,b.getX(),b.getZ()),b.getZ());
+                    enderMan.setPos(v3);
+                    if (EventHooks.checkSpawnPosition(enderMan, sl, EntitySpawnReason.EVENT)) {
+                        enderMan.addEffect(new MobEffectInstance(MobEffects.STRENGTH, 999999, 1));
+                        enderMan.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 999999, 2));
+                        enderMan.addEffect(new MobEffectInstance(MobEffects.SPEED, 999999, 2));
+                        enderMan.setPersistenceRequired();
+                        sl.addFreshEntity(enderMan);
+                        enderMan.setTarget(p);
+                        spawned = true;
+                        break;
+                    }
+                }
+            }
+        }
+        if(spawned) {
+            FortuneHelper.removeFortuneOfToday(p,Fortunes.STRONG_ENEMY);
+        }
     }
 
 }

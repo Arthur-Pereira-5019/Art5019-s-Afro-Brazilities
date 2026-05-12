@@ -49,7 +49,9 @@ public class Babalorisa extends AbstractVillager {
     }
 
     @Override
-    protected void readAdditionalSaveData(ValueInput input) {}
+    protected void readAdditionalSaveData(ValueInput input) {
+        super.readAdditionalSaveData(input);
+    }
 
     @Override
     protected void updateTrades() {
@@ -57,7 +59,9 @@ public class Babalorisa extends AbstractVillager {
     }
 
     @Override
-    protected void addAdditionalSaveData(ValueOutput output) {}
+    protected void addAdditionalSaveData(ValueOutput output) {
+        super.addAdditionalSaveData(output);
+    }
 
 
     @Override
@@ -78,7 +82,7 @@ public class Babalorisa extends AbstractVillager {
 
     @Override
     public boolean hurtServer(ServerLevel level, DamageSource damageSource, float amount) {
-        return true;
+        return super.hurtServer(level,damageSource,amount);
     }
 
     @Override
