@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:jigsaw",
+  "biomes": "#c:is_plains",
+  "step": "surface_structures",
+  "terrain_adaptation": "beard_thin",
+  "start_pool": "art5019safrobrazilities:terreiro_plains_1",
+  "size": 1,
+  "max_distance_from_center": 80,
+  "use_expansion_hack": false,
+  "spawn_overrides": {},
+  "start_height": {
+    "type": "minecraft:constant",
+    "value": {
+      "above_bottom": 64
+    }
+  }
+}

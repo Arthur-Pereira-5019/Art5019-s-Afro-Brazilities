@@ -1,0 +1,16 @@
+{
+  "structures": [
+    {
+      "structure": "art5019safrobrazilities:terreiro_plains_1",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 128,
+    "separation": 32,
+    "spread_type": "linear",
+    "salt": 1,
+    "frequency": 1
+  }
+}

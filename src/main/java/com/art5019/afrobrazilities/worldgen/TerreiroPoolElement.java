@@ -26,7 +26,6 @@ import java.util.Map;
 import java.util.Optional;
 
 public class TerreiroPoolElement extends SinglePoolElement {
-    private static final Optional<LiquidSettings> DEFAULT_LIQUID = Optional.of(LiquidSettings.IGNORE_WATERLOGGING);
     public static final Codec<TerreiroPoolElement> CODEC = RecordCodecBuilder.create(instance -> {
         return instance.group(templateCodec(), processorsCodec()).apply(instance, TerreiroPoolElement::new);
     });
