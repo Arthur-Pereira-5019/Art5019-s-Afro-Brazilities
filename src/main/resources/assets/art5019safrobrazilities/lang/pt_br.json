@@ -1,8 +1,13 @@
 {
+
+
   "itemGroup.art5019safrobrazilities": "Example Mod Tab",
-  "block.art5019safrobrazilities.example_block": "Example Block",
-  "item.art5019safrobrazilities.example_item": "Example Item",
-  "item.art5019safrobrazilities.buzio_conch": "Buzio Conch",
+
+
+  "item.art5019safrobrazilities.osun_honey": "Mel de Oxum",
+  "item.art5019safrobrazilities.buzio_conch": "Búzio",
+  "block.art5019safrobrazilities.two_tone_red_and_black_candle": "Vela Bicolor Preta e Vermelha",
+
 
   "art5019safrobrazilities.configuration.title": "Art5019's Afrobrazilities Configs",
   "art5019safrobrazilities.configuration.section.art5019safrobrazilities.common.toml": "Art5019's Afrobrazilities Configs",
@@ -12,12 +17,28 @@
   "art5019safrobrazilities.configuration.magicNumberIntroduction": "Magic Number Text",
   "art5019safrobrazilities.configuration.magicNumber": "Magic Number",
 
+
+  "advancements.art5019safrobrazilities.chandlery.title": "Velaria",
+  "advancements.art5019safrobrazilities.chandlery.description": "Faça sua primeira vela",
+  "advancements.art5019safrobrazilities.fervent_chandlery.title": "Velaria fervente",
+  "advancements.art5019safrobrazilities.fervent_chandlery.description": "Faça uma vela bicolor",
+  "advancements.art5019safrobrazilities.gold_fishing.title": "Pescaria padrão ouro",
+  "advancements.art5019safrobrazilities.gold_fishing.description": "Pesque em um rio estando abençoado por Oxum",
+  "advancements.art5019safrobrazilities.new_mansa.title": "Novo Mansa",
+  "advancements.art5019safrobrazilities.new_mansa.description": "Obtenha um Bloco de Ouro Bruto pescando.",
+
+
+  "death.attack.peaceful_death": "%s morreu pacificamente",
+  "death.attack.painful_death": "%s agonizou até a morte",
+
+
   "art5019afrobrazilities.fortune.full.nothing": "Ao que parece, nada vai acontecer no dia %s",
-  "art5019afrobrazilities.fortune.full.luck_fishing": "Tesouros te aguardam nos rios e nos mares no dia %s.",
+  "art5019afrobrazilities.fortune.full.luck_fishing": "Tesouros te aguardam nos mares no dia %s.",
+  "art5019afrobrazilities.fortune.full.luck_fishing_2": "Tesouros te aguardam nos rios no dia %s.",
   "art5019afrobrazilities.fortune.full.bad_fishing": "Evite rios e mares no dia %s.",
   "art5019afrobrazilities.fortune.full.fight_luck": "No dia %s, a força e o poder de Ogum estarão com você.",
-  "art5019afrobrazilities.fortune.full.unluck_fight": "When challenged to fight at day %s, don't engage on the conflict, or else you may suffer bad consequences.",
-  "art5019afrobrazilities.fortune.full.death": "Iku will be seeking for you at day %s. There isn't much you can do about it, but if you really think it's not the time, you must hurry, there are a lot of work to be done to avoid it.",
+  "art5019afrobrazilities.fortune.full.unluck_fight": "Quando desafiado a lutar no dia %s, não caia na cilada de aceitar.",
+  "art5019afrobrazilities.fortune.full.death": "Iku irá te buscar no dia %s. Será extremamente difícil evitar, porém se você está certo que não é a hora, corra contra o relógio para se safar.",
   "art5019afrobrazilities.fortune.full.luck_increase": "Do dia %s em diante, as coisas ficarão melhores para você.",
   "art5019afrobrazilities.fortune.full.unluck_increase": "Se prepare, pois do dia %s em diante, as coisas ficarão complicadas para você.",
   "art5019afrobrazilities.fortune.full.guaranteed_triumph": "Uma grande vitória lhe será dada no dia %s",
@@ -26,24 +47,36 @@
   "art5019afrobrazilities.fortune.full.extra_profits": "O dia %s é um excelente dia para se fazer negócios.",
   "art5019afrobrazilities.fortune.full.strong_enemy": "Alguém muito forte te encontrará no dia %s, aja com preucação.",
   "art5019afrobrazilities.fortune.full.message": "Certifique-se de ouvir seus guias no dia %s, eles te contarão algo imporante.",
+  "art5019afrobrazilities.fortune.full.judgement": "Garanta que seu coração está limpo no dia %s, pois Xangô será seu juíz.",
+  "art5019afrobrazilities.fortune.full.mining_luck": "Riquezas do fundo da terra estarão disponíveis para você no dia %s.",
+  "art5019afrobrazilities.fortune.full.betrayal": "No dia %s, você será traído.",
+  "art5019afrobrazilities.fortune.name.nothing": "Sem nenhum destino especial",
+  "art5019afrobrazilities.fortune.name.luck_fishing": "Pescaria marítima sortuda",
+  "art5019afrobrazilities.fortune.name.luck_fishing_2": "Pescaria em rio sortuda",
+  "art5019afrobrazilities.fortune.name.bad_fishing": "Pescaria azarada",
+  "art5019afrobrazilities.fortune.name.fight_luck": "Grande força",
+  "art5019afrobrazilities.fortune.name.unluck_fight": "Inimigos mais fortes",
+  "art5019afrobrazilities.fortune.name.death": "Morte",
+  "art5019afrobrazilities.fortune.name.luck_increase": "Sequência de boa sorte",
+  "art5019afrobrazilities.fortune.name.unluck_increase": "Sequência de má sorte",
+  "art5019afrobrazilities.fortune.name.message": "Mensagem do outro lado",
+  "art5019afrobrazilities.fortune.name.guaranteed_triumph": "Vitória garantida",
+  "art5019afrobrazilities.fortune.name.guaranteed_fail": "Derrota garantida",
+  "art5019afrobrazilities.fortune.name.health_problem": "Problemas de saúde",
+  "art5019afrobrazilities.fortune.name.extra_profits": "Lucros",
+  "art5019afrobrazilities.fortune.name.strong_enemy": "Adversário formidável",
+  "art5019afrobrazilities.fortune.name.judgement": "Julgamento",
+  "art5019afrobrazilities.fortune.name.mining_luck": "Sorte na mineração",
+  "art5019afrobrazilities.fortune.name.betrayal": "Traição",
 
-  "art5019afrobrazilities.fortune.name.nothing": "No special fate",
-  "art5019afrobrazilities.fortune.name.luck_fishing": "Lucky fishing",
-  "art5019afrobrazilities.fortune.name.bad_fishing": "Unlucky fishing",
-  "art5019afrobrazilities.fortune.name.fight_luck": "Great strength",
-  "art5019afrobrazilities.fortune.name.unluck_fight": "Stronger enemies",
-  "art5019afrobrazilities.fortune.name.death": "Death",
-  "art5019afrobrazilities.fortune.name.luck_increase": "Good luck streak",
-  "art5019afrobrazilities.fortune.name.unluck_increase": "Bad luck streak",
-  "art5019afrobrazilities.fortune.name.message": "Otherwordly message",
-  "art5019afrobrazilities.fortune.name.guaranteed_triumph": "Victory granted",
-  "art5019afrobrazilities.fortune.name.guaranteed_fail": "Defeat granted",
-  "art5019afrobrazilities.fortune.name.health_problem": "Health problems",
-  "art5019afrobrazilities.fortune.name.extra_profits": "Profits",
-  "art5019afrobrazilities.fortune.name.strong_enemy": "Strong adversary",
 
   "art5019afrobrazilities.entity.babalorisa": "Babalorixá",
-  "art5019afrobrazilities.entity.babalorisa.np2": "I see, you want to see your future, but some drowneds have stealed my set of conchs, help me to find them, I need 16 of them.",
-  "art5019afrobrazilities.entity.babalorisa.np3": "Ok, thanks for recovering my set of conchs, now, the payment, I need 28 Emeralds, don't worry, it will all go to offerings.",
-  "art5019afrobrazilities.entity.babalorisa.np1": "Thanks for the money, finally you'll need a Writtable Book so I can register the answer your spirits gave to me."
+  "art5019afrobrazilities.entity.babalorisa.np2": "Eu sei que você quer ver seu futuro, mas infelizmente Afogados roubaram meus búzios, vou precisar de ajuda para ter novamente 16.",
+  "art5019afrobrazilities.entity.babalorisa.np3": "Muito obrigado pela ajuda, agora preciso do pagamento de 28 Esmeraldas, mas fique tranquilo, vai tudo para caridade e oferendas.",
+  "art5019afrobrazilities.entity.babalorisa.np1": "Obrigado pelo dinheiro, por fim, preciso de um Livro e Pena para registrar o que seus guias me contaram.",
+
+
+  "art5019safrobrazilities.world.terreiro.wip.l1": "Terreiro ",
+  "art5019safrobrazilities.world.terreiro.wip.l2": "em",
+  "art5019safrobrazilities.world.terreiro.wip.l3": "reforma"
 }
