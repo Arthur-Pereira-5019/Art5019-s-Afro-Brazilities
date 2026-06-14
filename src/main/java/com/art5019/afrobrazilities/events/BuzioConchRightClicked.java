@@ -24,7 +24,8 @@ import static com.art5019.afrobrazilities.items.BuzioConch.BUZIO_CONCH;
 @Mod(MODID)
 @EventBusSubscriber
 public class BuzioConchRightClicked {
-    @SubscribeEvent
+
+    /*@SubscribeEvent
     private static void onBuzioConchRightClicked(PlayerInteractEvent.RightClickItem event) {
         if(!event.getLevel().isClientSide) {
             if(event.getItemStack().is(BUZIO_CONCH)) {
@@ -43,5 +44,5 @@ public class BuzioConchRightClicked {
             }
         }
 
-    }
+    }*/
 }
