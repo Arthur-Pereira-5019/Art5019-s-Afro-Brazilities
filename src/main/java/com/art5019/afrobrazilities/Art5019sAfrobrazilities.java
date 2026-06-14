@@ -31,6 +31,7 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
 import static com.art5019.afrobrazilities.block.Candles.TWO_TONE_RED_AND_BLACK_CANDLE_ITEM;
+import static com.art5019.afrobrazilities.block.Simple_Plants.*;
 import static com.art5019.afrobrazilities.items.BuzioConch.BUZIO_CONCH;
 
 @Mod(Art5019sAfrobrazilities.MODID)
@@ -55,6 +56,8 @@ public class Art5019sAfrobrazilities {
             .displayItems((parameters, output) -> {
                 output.accept(BUZIO_CONCH.get());
                 output.accept(TWO_TONE_RED_AND_BLACK_CANDLE_ITEM.get());
+                output.accept(GROWN_DANDELION_ITEM.get());
+                output.accept(DANDELION_SPROUT_ITEM.get());
             }).build());
 
     public Art5019sAfrobrazilities(IEventBus modEventBus, ModContainer modContainer) {

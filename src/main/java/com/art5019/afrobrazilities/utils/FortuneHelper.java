@@ -15,6 +15,9 @@ import static com.art5019.afrobrazilities.data.DataAttachments.*;
 public class FortuneHelper {
     private static int totalWeight;
     private static List<Fortunes> fortunes;
+    // Update before shipping
+    private static final int DAY_RANGE_L = 1;
+    private static final int DAY_RANGE_R = 3;
     private static Random r = new Random();
     public static void generateFortunes(int times, Player p, Level level) {
         ArrayList<FortuneRecord> data = new ArrayList<>(p.getData(FORTUNE));
@@ -30,10 +33,19 @@ public class FortuneHelper {
             } else {
                 f = generateRandomFortune(p);
             }
-            data.add(new FortuneRecord(f.getId(), day + r.nextInt(1, 3), false));
+            data.add(new FortuneRecord(f.getId(), day + r.nextInt(DAY_RANGE_L, DAY_RANGE_R), false));
             p.setData(FORTUNE, data);
         }
+    }
 
+    public static void generateQualifiedFortune(int times, Player p, Level l, boolean good) {
+        ArrayList<FortuneRecord> data = new ArrayList<>(p.getData(FORTUNE));
+        int day = getDay(l);
+        for(int i = 0; i < times; i++) {
+            Fortunes f = generateRandomQualifiedFortune(p,good);
+            data.add(new FortuneRecord(f.getId(), day + r.nextInt(DAY_RANGE_L, DAY_RANGE_R), false));
+            p.setData(FORTUNE, data);
+        }
     }
 
     public static List<Fortunes> fortunesToday(Player p) {
@@ -81,6 +93,24 @@ public class FortuneHelper {
             cW += fortune.getWeight();
             if (cW > l) {
                 return fortune;
+            }
+        }
+        return Fortunes.NOTHING;
+    }
+
+    private static Fortunes generateRandomQualifiedFortune(Player p, boolean good) {
+        for (int i = 0; i < 20; i++) {
+            int l = r.nextInt(0, totalWeight);
+            int cW = 0;
+            for (Fortunes fortune : fortunes) {
+                cW += fortune.getWeight();
+                if (cW > l) {
+                    if (good && fortune.getPositiveness() > 0) {
+                        return fortune;
+                    } else if (!good && fortune.getPositiveness() < 0) {
+                        return fortune;
+                    }
+                }
             }
         }
         return Fortunes.NOTHING;
