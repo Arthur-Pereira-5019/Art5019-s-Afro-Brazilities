@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:match_tool",
+          "predicate": {
+            "items": "minecraft:shears"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "art5019safrobrazilities:dandelion_sprout"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "art5019safrobrazilities:blocks/dandelion_sprout"
+}

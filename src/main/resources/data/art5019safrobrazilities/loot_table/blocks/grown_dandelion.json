@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "art5019safrobrazilities:grown_dandelion"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "art5019safrobrazilities:blocks/grown_dandelion"
+}

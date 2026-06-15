@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "art5019safrobrazilities:block/dandelion_grown"
-  }
+    "cross": "art5019safrobrazilities:block/grown_dandelion"
+  },
+  "render_type": "cutout"
 }
