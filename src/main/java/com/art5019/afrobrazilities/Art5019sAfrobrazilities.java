@@ -69,6 +69,7 @@ public class Art5019sAfrobrazilities {
         CREATIVE_MODE_TABS.register(modEventBus);
         ATTACHMENT_TYPES.register(modEventBus);
         ENTITY_TYPES.register(modEventBus);
+        PARTICLE_TYPES.register(modEventBus);
         NeoForge.EVENT_BUS.register(this);
 
         //modEventBus.addListener(this::addCreative);

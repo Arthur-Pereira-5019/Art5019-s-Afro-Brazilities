@@ -14,7 +14,6 @@ import java.util.function.Supplier;
 import static com.art5019.afrobrazilities.Art5019sAfrobrazilities.MODID;
 import static com.art5019.afrobrazilities.Art5019sAfrobrazilities.PARTICLE_TYPES;
 
-@Mod(MODID)
 public class DandelionSeed extends SuspendedParticle {
     private final SpriteSet spriteSet;
 
