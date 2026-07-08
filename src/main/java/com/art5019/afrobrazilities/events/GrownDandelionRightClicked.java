@@ -66,10 +66,10 @@ public class GrownDandelionRightClicked {
                 int py = (int) player.getY();
                 int pz = (int) player.getZ();
                 AtomicInteger placed = new AtomicInteger();
-                for (int t = 0; t < 40 || placed.get() == 10; t++) {
+                for (int t = 0; t < 80 || placed.get() == 10; t++) {
                     BlockPos b = new BlockPos(px, py, pz);
                     WorldTick.queueServerWork(t * 10, () -> {
-                        BlockPos nb = new BlockPos(b.getX()+r.nextInt(-7,7), b.getY()+r.nextInt(-1,1), b.getZ()+r.nextInt(-7,7));
+                        BlockPos nb = new BlockPos(b.getX()+r.nextInt(-13,13), b.getY()+r.nextInt(-6,2), b.getZ()+r.nextInt(-13,13));
                         if (sl.getBlockState(nb).is(BlockTags.DIRT)) {
                             if(sl.getBlockState(nb.offset(0,1,0)).is(BlockTags.AIR)) {
                                 sl.setBlock(nb.offset(0,1,0), DANDELION_SPROUT.get().defaultBlockState(),Block.UPDATE_ALL);
