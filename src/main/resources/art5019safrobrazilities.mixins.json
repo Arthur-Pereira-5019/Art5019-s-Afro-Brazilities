@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "com.art5019.afrobrazilities.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "BlockBehaviourMixin",
+    "BlocksMixin"
+  ],
+  "client": [
+
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
