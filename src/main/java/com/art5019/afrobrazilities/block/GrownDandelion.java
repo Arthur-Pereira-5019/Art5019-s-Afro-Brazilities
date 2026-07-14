@@ -47,7 +47,7 @@ public class GrownDandelion extends FlowerBlock {
 
     @Override
     protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        int r = random.nextInt(0,80);
+        int r = random.nextInt(0,30);
         if(r == 7) {
             level.setBlock(pos, AIR.defaultBlockState(), FlowerBlock.UPDATE_ALL);
             spread(level, pos, random);
@@ -78,7 +78,7 @@ public class GrownDandelion extends FlowerBlock {
         AtomicInteger placed = new AtomicInteger(0);
         for (int t = 0; t < 200; t++) {
             WorldTick.queueServerWork(t * 2, () -> {
-                if(placed.get() < 6) {
+                if(placed.get() < 5) {
                     BlockPos nb = new BlockPos(b.getX() + r.nextInt(-13, 13), b.getY() + r.nextInt(-8, 2), b.getZ() + r.nextInt(-13, 13));
                     if (sl.getBlockState(nb).is(BlockTags.DIRT)) {
                         if (sl.getBlockState(nb.offset(0, 1, 0)).is(BlockTags.AIR)) {
