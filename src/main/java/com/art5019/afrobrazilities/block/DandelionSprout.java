@@ -11,7 +11,10 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.InsideBlockEffectApplier;
 import net.minecraft.world.item.component.SuspiciousStewEffects;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -37,8 +40,19 @@ public class DandelionSprout extends FlowerBlock {
 
     @Override
     protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        if(level.getRawBrightness(pos, 0) >= 8) {
-            level.setBlock(pos, DANDELION.defaultBlockState(), FlowerBlock.UPDATE_ALL);
+        int r = random.nextInt(0,40);
+        if(r == 7) {
+            if(level.getRawBrightness(pos, 0) >= 8) {
+                level.setBlock(pos, DANDELION.defaultBlockState(), FlowerBlock.UPDATE_ALL);
+            }
         }
+    }
+
+    @Override
+    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier) {
+        if(level instanceof ServerLevel) {
+            level.destroyBlock(pos,false);
+        }
+        super.entityInside(state, level, pos, entity, effectApplier);
     }
 }

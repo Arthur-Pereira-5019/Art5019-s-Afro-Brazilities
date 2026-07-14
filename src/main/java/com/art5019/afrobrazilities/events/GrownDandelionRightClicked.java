@@ -1,4 +1,5 @@
 package com.art5019.afrobrazilities.events;
+import com.art5019.afrobrazilities.block.GrownDandelion;
 import com.art5019.afrobrazilities.utils.FortuneHelper;
 import com.art5019.afrobrazilities.utils.ItemStackUtils;
 import net.minecraft.core.BlockPos;
@@ -36,18 +37,7 @@ public class GrownDandelionRightClicked {
                 Inventory i = player.getInventory();
                 i.clearOrCountMatchingItems(p -> GROWN_DANDELION_ITEM.asItem() == p.getItem(), 1, player.inventoryMenu.getCraftSlots());
                 ServerLevel sl = (ServerLevel) player.level();
-                sl.sendParticles(
-                        DANDELION_SEED.get(),
-                        player.getX(),
-                        player.getY() + 1,
-                        player.getZ(),
-                        140,
-                        0.7,
-                        0.7,
-                        0.7,
-                        1
-                );
-                if (r.nextFloat() < 0.1) {
+                if (r.nextFloat() < 0.01) {
                     sl.sendParticles(
                             ParticleTypes.HAPPY_VILLAGER,
                             player.getX(),
@@ -61,23 +51,10 @@ public class GrownDandelionRightClicked {
                     );
                     FortuneHelper.generateQualifiedFortune(1, player, player.level(), true);
                 }
-                ChunkPos chunkpos = player.chunkPosition();
                 int px = (int) player.getX();
                 int py = (int) player.getY();
                 int pz = (int) player.getZ();
-                AtomicInteger placed = new AtomicInteger();
-                for (int t = 0; t < 80 || placed.get() == 10; t++) {
-                    BlockPos b = new BlockPos(px, py, pz);
-                    WorldTick.queueServerWork(t * 10, () -> {
-                        BlockPos nb = new BlockPos(b.getX()+r.nextInt(-13,13), b.getY()+r.nextInt(-6,2), b.getZ()+r.nextInt(-13,13));
-                        if (sl.getBlockState(nb).is(BlockTags.DIRT)) {
-                            if(sl.getBlockState(nb.offset(0,1,0)).is(BlockTags.AIR)) {
-                                sl.setBlock(nb.offset(0,1,0), DANDELION_SPROUT.get().defaultBlockState(),Block.UPDATE_ALL);
-                            }
-                        }
-                        placed.addAndGet(1);
-                    });
-                }
+                GrownDandelion.spread(sl,new BlockPos(px,py,pz),sl.random);
             }
         }
     }

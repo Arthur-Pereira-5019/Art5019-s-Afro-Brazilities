@@ -18,8 +18,11 @@ import static net.minecraft.world.level.block.Blocks.DANDELION;
 public class BlockBehaviourMixin {
         @Inject(method = "randomTick", at = @At("HEAD"))
         private void onRandomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random, CallbackInfo ci) {
-            if(level.getRawBrightness(pos, 0) >= 8 && state.is(DANDELION)) {
-                level.setBlock(pos, GROWN_DANDELION.get().defaultBlockState(), FlowerBlock.UPDATE_ALL);
+            int r = random.nextInt(0,40);
+            if(r == 17) {
+                if(level.getRawBrightness(pos, 0) >= 8 && state.is(DANDELION)) {
+                    level.setBlock(pos, GROWN_DANDELION.get().defaultBlockState(), FlowerBlock.UPDATE_ALL);
+                }
             }
         }
 }

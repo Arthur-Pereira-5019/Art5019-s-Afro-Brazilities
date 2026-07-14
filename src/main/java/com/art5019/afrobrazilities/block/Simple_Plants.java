@@ -30,7 +30,7 @@ import static net.minecraft.world.level.block.state.BlockBehaviour.propertiesCod
 
 @Mod(MODID)
 public class Simple_Plants {
-    public static final DeferredBlock<Block> GROWN_DANDELION = BLOCKS.register("grown_dandelion", x -> new FlowerBlock(MobEffects.SATURATION, 0.7F, plant_properties(x)));
+    public static final DeferredBlock<Block> GROWN_DANDELION = BLOCKS.register("grown_dandelion", x -> new GrownDandelion(makeEffect(MobEffects.SATURATION, 0.7F), plant_properties(x)));
     public static final DeferredBlock<Block> DANDELION_SPROUT = BLOCKS.register("dandelion_sprout", x -> new DandelionSprout(makeEffect(MobEffects.SATURATION, 0.1F), plant_properties(x)));
 
     private static BlockBehaviour.Properties plant_properties(ResourceLocation name) {
@@ -59,10 +59,18 @@ public class Simple_Plants {
 
 
     public static final Supplier<MapCodec<DandelionSprout>> DANDELION_SPROUT_CODEC = BLOCK_TYPES.register(
-            "simple",
+            "dandelion_sprout",
             () -> RecordCodecBuilder.mapCodec((instance) ->
                     instance.group(
                         FlowerBlock.EFFECTS_FIELD.forGetter(FlowerBlock::getSuspiciousEffects), propertiesCodec()).apply(instance, DandelionSprout::new)
+                    )
+    );
+
+    public static final Supplier<MapCodec<GrownDandelion>> GROWN_DANDELION_CODEC = BLOCK_TYPES.register(
+            "grown_dandelion",
+            () -> RecordCodecBuilder.mapCodec((instance) ->
+                    instance.group(
+                        FlowerBlock.EFFECTS_FIELD.forGetter(FlowerBlock::getSuspiciousEffects), propertiesCodec()).apply(instance, GrownDandelion::new)
                     )
     );
 
