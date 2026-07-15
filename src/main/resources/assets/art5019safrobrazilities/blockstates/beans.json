@@ -1,0 +1,25 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "art5019safrobrazilities:block/beans_stage0"
+    },
+    "age=1": {
+      "model": "art5019safrobrazilities:block/beans_stage1"
+    },
+    "age=2": {
+      "model": "art5019safrobrazilities:block/beans_stage2"
+    },
+    "age=3": {
+      "model": "art5019safrobrazilities:block/beans_stage3"
+    },
+    "age=4": {
+      "model": "art5019safrobrazilities:block/beans_stage4"
+    },
+    "age=5": {
+      "model": "art5019safrobrazilities:block/beans_stage5"
+    },
+    "age=6": {
+      "model": "art5019safrobrazilities:block/beans_stage6"
+    }
+  }
+}

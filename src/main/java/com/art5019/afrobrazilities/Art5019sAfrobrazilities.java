@@ -61,6 +61,7 @@ public class Art5019sAfrobrazilities {
                 output.accept(TWO_TONE_RED_AND_BLACK_CANDLE_ITEM.get());
                 output.accept(GROWN_DANDELION_ITEM.get());
                 output.accept(DANDELION_SPROUT_ITEM.get());
+                output.accept(BEANS.get());
             }).build());
 
     public Art5019sAfrobrazilities(IEventBus modEventBus, ModContainer modContainer) {
