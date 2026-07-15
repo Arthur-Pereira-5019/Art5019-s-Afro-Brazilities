@@ -27,10 +27,12 @@ import java.util.function.Supplier;
 
 import static com.art5019.afrobrazilities.Art5019sAfrobrazilities.*;
 import static net.minecraft.world.level.block.state.BlockBehaviour.propertiesCodec;
+import static net.minecraft.world.level.block.state.BlockBehaviour.simpleCodec;
 
 @Mod(MODID)
 public class Simple_Plants {
     public static final DeferredBlock<Block> GROWN_DANDELION = BLOCKS.register("grown_dandelion", x -> new GrownDandelion(makeEffect(MobEffects.SATURATION, 0.7F), plant_properties(x)));
+    public static final DeferredBlock<Block> BEANS = BLOCKS.register("beans", x -> new BeanCrop(plant_properties(x)));
     public static final DeferredBlock<Block> DANDELION_SPROUT = BLOCKS.register("dandelion_sprout", x -> new DandelionSprout(makeEffect(MobEffects.SATURATION, 0.1F), plant_properties(x)));
 
     private static BlockBehaviour.Properties plant_properties(ResourceLocation name) {
@@ -57,6 +59,12 @@ public class Simple_Plants {
             new Item.Properties()
     );
 
+    public static final DeferredItem<BlockItem> BEANS_ITEM = ITEMS.registerSimpleBlockItem(
+            "beans",
+            BEANS,
+            new Item.Properties()
+    );
+
 
     public static final Supplier<MapCodec<DandelionSprout>> DANDELION_SPROUT_CODEC = BLOCK_TYPES.register(
             "dandelion_sprout",
@@ -72,6 +80,11 @@ public class Simple_Plants {
                     instance.group(
                         FlowerBlock.EFFECTS_FIELD.forGetter(FlowerBlock::getSuspiciousEffects), propertiesCodec()).apply(instance, GrownDandelion::new)
                     )
+    );
+
+    public static final Supplier<MapCodec<BeanCrop>> BEAN_CODEC = BLOCK_TYPES.register(
+            "beans",
+            () -> simpleCodec(BeanCrop::new)
     );
 
     protected static SuspiciousStewEffects makeEffect(Holder<MobEffect> effect, float seconds) {
