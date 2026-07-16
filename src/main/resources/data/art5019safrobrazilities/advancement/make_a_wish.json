@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "id": "art5019safrobrazilities:grown_dandelion"
+    },
+    "title": {
+      "translate": "advancements.art5019safrobrazilities.make_a_wish.title"
+    },
+    "description": {
+      "translate": "advancements.art5019safrobrazilities.make_a_wish.description"
+    },
+    "frame": "goal",
+    "hidden": false
+  },
+  "parent": "minecraft:husbandry/plant_seed",
+  "criteria": {
+    "1": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "1"
+    ]
+  ],
+  "rewards": {
+    "experience": 2,
+    "recipes": []
+  }
+}

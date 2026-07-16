@@ -7,7 +7,7 @@
   ],
   "pools": [
     {
-      "bonus_rolls": 0.0,
+      "bonus_rolls": 0,
       "entries": [
         {
           "type": "minecraft:alternatives",
@@ -26,13 +26,13 @@
               "name": "art5019safrobrazilities:beans"
             },
             {
-              "type": "minecraft:item",
+              "type": "minecraft:empty",
               "name": "minecraft:air"
             }
           ]
         }
       ],
-      "rolls": 3.0
+      "rolls": 3
     }
   ],
   "random_sequence": "art5019safrobrazilities:blocks/beans"

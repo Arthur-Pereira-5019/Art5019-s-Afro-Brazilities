@@ -1,0 +1,10 @@
+{
+    "type": "art5019safrobrazilities:bartering_modifier",
+    "conditions": [
+        {
+            "condition": "neoforge:loot_table_id",
+            "loot_table_id": "minecraft:gameplay/piglin_bartering"
+        }
+    ]
+}
+

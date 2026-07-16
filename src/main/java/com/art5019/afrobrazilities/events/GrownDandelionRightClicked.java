@@ -2,9 +2,12 @@ package com.art5019.afrobrazilities.events;
 import com.art5019.afrobrazilities.block.GrownDandelion;
 import com.art5019.afrobrazilities.utils.FortuneHelper;
 import com.art5019.afrobrazilities.utils.ItemStackUtils;
+import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -37,6 +40,13 @@ public class GrownDandelionRightClicked {
                 Inventory i = player.getInventory();
                 i.clearOrCountMatchingItems(p -> GROWN_DANDELION_ITEM.asItem() == p.getItem(), 1, player.inventoryMenu.getCraftSlots());
                 ServerLevel sl = (ServerLevel) player.level();
+                AdvancementHolder mw = sl.getServer()
+                        .getAdvancements()
+                        .get(ResourceLocation.fromNamespaceAndPath("art5019safrobrazilities", "make_a_wish"));
+                if(mw != null && player instanceof ServerPlayer) {
+                    ((ServerPlayer) player).getAdvancements().award(mw,"1");
+                }
+
                 if (r.nextFloat() < 0.01) {
                     sl.sendParticles(
                             ParticleTypes.HAPPY_VILLAGER,
@@ -50,6 +60,12 @@ public class GrownDandelionRightClicked {
                             1
                     );
                     FortuneHelper.generateQualifiedFortune(1, player, player.level(), true);
+                    AdvancementHolder nm = sl.getServer()
+                            .getAdvancements()
+                            .get(ResourceLocation.fromNamespaceAndPath("art5019safrobrazilities", "hail_2_u"));
+                    if(nm != null && player instanceof ServerPlayer) {
+                        ((ServerPlayer) player).getAdvancements().award(nm,"1");
+                    }
                 }
                 int px = (int) player.getX();
                 int py = (int) player.getY();

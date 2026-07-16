@@ -6,6 +6,7 @@
   "block.art5019safrobrazilities.two_tone_red_and_black_candle": "Two-Tone Red and Black Candle",
   "block.art5019safrobrazilities.grown_dandelion": "Grown Dandelion",
   "block.art5019safrobrazilities.dandelion_sprout": "Dandelion Sprout",
+  "block.art5019safrobrazilities.beans": "Black Beans",
 
   "art5019safrobrazilities.configuration.title": "Art5019's Afrobrazilities Configs",
   "art5019safrobrazilities.configuration.section.art5019safrobrazilities.common.toml": "Art5019's Afrobrazilities Configs",
@@ -23,6 +24,12 @@
   "advancements.art5019safrobrazilities.gold_fishing.description": "Fish on a river while blessed by Osun",
   "advancements.art5019safrobrazilities.new_mansa.title": "New Mansa",
   "advancements.art5019safrobrazilities.new_mansa.description": "Obtain an Raw Gold Block by fishing.",
+  "advancements.art5019safrobrazilities.field_of_hopes.title": "Field of Hopes and Dreams",
+  "advancements.art5019safrobrazilities.field_of_hopes.description": "Throw a Wind Charge on a Grown Dandelion.",
+  "advancements.art5019safrobrazilities.hail_to_u.title": "Hail 2 U",
+  "advancements.art5019safrobrazilities.hail_to_u.description": "Have a wish granted by blowing an Grown Dandelion.",
+  "advancements.art5019safrobrazilities.make_a_wish.title": "Make a Wish",
+  "advancements.art5019safrobrazilities.make_a_wish.description": "Blow an Grown Dandelion.",
 
   "death.attack.peaceful_death": "%s died peacefully",
   "death.attack.painful_death": "%s agonized until death",

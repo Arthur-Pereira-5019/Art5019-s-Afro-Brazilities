@@ -2,17 +2,20 @@ package com.art5019.afrobrazilities.block;
 
 import com.art5019.afrobrazilities.events.WorldTick;
 import com.mojang.serialization.MapCodec;
+import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.SuspiciousStewEffects;
 import net.minecraft.world.level.Explosion;
@@ -59,6 +62,15 @@ public class GrownDandelion extends FlowerBlock {
         if (explosion.canTriggerBlocks()) {
             spread(level,pos,level.random);
             level.setBlock(pos, AIR.defaultBlockState(), FlowerBlock.UPDATE_ALL);
+            if(explosion.getIndirectSourceEntity() instanceof ServerPlayer) {
+                AdvancementHolder nm = level.getServer()
+                        .getAdvancements()
+                        .get(ResourceLocation.fromNamespaceAndPath("art5019safrobrazilities", "field_of_hopes"));
+
+                if(nm != null) {
+                    ((ServerPlayer) explosion.getIndirectSourceEntity()).getAdvancements().award(nm,"1");
+                }
+            }
         }
         super.onExplosionHit(blockState, level, pos, explosion, consumer);
     }
