@@ -39,6 +39,7 @@ public class Simple_Plants {
     public static final DeferredBlock<Block> PURPLE_ORCHID = BLOCKS.register("purple_orchid", x -> new Orchid(makeEffect(MobEffects.RESISTANCE, 8F), plant_properties(x)));
     public static final DeferredBlock<Block> STARRY_ORCHID = BLOCKS.register("starry_orchid", x -> new Orchid(makeEffect(MobEffects.GLOWING, 10F), plant_properties(x)));
     public static final DeferredBlock<Block> RAINBOW_ORCHID = BLOCKS.register("rainbow_orchid", x -> new Orchid(makeEffect(MobEffects.GLOWING, 7F), plant_properties(x)));
+    public static final DeferredBlock<Block> BLACK_ORCHID = BLOCKS.register("black_orchid", x -> new Orchid(makeEffect(MobEffects.DARKNESS, 7F), plant_properties(x)));
     public static final DeferredBlock<Block> BEANS = BLOCKS.register("beans", x -> new BeanCrop(plant_properties(x)));
     public static final DeferredBlock<Block> DANDELION_SPROUT = BLOCKS.register("dandelion_sprout", x -> new DandelionSprout(makeEffect(MobEffects.SATURATION, 0.1F), plant_properties(x)));
 
@@ -114,6 +115,11 @@ public class Simple_Plants {
             new Item.Properties()
     );
 
+    public static final DeferredItem<BlockItem> BLACK_ORCHID_ITEM = ITEMS.registerSimpleBlockItem(
+            "black_orchid",
+            BLACK_ORCHID,
+            new Item.Properties()
+    );
 
 
     public static final Supplier<MapCodec<DandelionSprout>> DANDELION_SPROUT_CODEC = BLOCK_TYPES.register(
