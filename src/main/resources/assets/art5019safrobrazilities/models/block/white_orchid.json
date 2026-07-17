@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "art5019safrobrazilities:block/white_orchid"
+  },
+  "render_type": "cutout"
+}

@@ -32,6 +32,13 @@ import static net.minecraft.world.level.block.state.BlockBehaviour.simpleCodec;
 @Mod(MODID)
 public class Simple_Plants {
     public static final DeferredBlock<Block> GROWN_DANDELION = BLOCKS.register("grown_dandelion", x -> new GrownDandelion(makeEffect(MobEffects.SATURATION, 0.7F), plant_properties(x)));
+    public static final DeferredBlock<Block> WHITE_ORCHID = BLOCKS.register("white_orchid", x -> new Orchid(makeEffect(MobEffects.RESISTANCE, 8F), plant_properties(x)));
+    public static final DeferredBlock<Block> WINE_ORCHID = BLOCKS.register("wine_orchid", x -> new Orchid(makeEffect(MobEffects.RESISTANCE, 8F), plant_properties(x)));
+    public static final DeferredBlock<Block> YELLOW_ORCHID = BLOCKS.register("yellow_orchid", x -> new Orchid(makeEffect(MobEffects.RESISTANCE, 8F), plant_properties(x)));
+    public static final DeferredBlock<Block> LILAC_ORCHID = BLOCKS.register("lilac_orchid", x -> new Orchid(makeEffect(MobEffects.RESISTANCE, 8F), plant_properties(x)));
+    public static final DeferredBlock<Block> PURPLE_ORCHID = BLOCKS.register("purple_orchid", x -> new Orchid(makeEffect(MobEffects.RESISTANCE, 8F), plant_properties(x)));
+    public static final DeferredBlock<Block> STARRY_ORCHID = BLOCKS.register("starry_orchid", x -> new Orchid(makeEffect(MobEffects.GLOWING, 10F), plant_properties(x)));
+    public static final DeferredBlock<Block> RAINBOW_ORCHID = BLOCKS.register("rainbow_orchid", x -> new Orchid(makeEffect(MobEffects.GLOWING, 7F), plant_properties(x)));
     public static final DeferredBlock<Block> BEANS = BLOCKS.register("beans", x -> new BeanCrop(plant_properties(x)));
     public static final DeferredBlock<Block> DANDELION_SPROUT = BLOCKS.register("dandelion_sprout", x -> new DandelionSprout(makeEffect(MobEffects.SATURATION, 0.1F), plant_properties(x)));
 
@@ -65,6 +72,49 @@ public class Simple_Plants {
             new Item.Properties()
     );
 
+    public static final DeferredItem<BlockItem> WHITE_ORCHID_ITEM = ITEMS.registerSimpleBlockItem(
+            "white_orchid",
+            WHITE_ORCHID,
+            new Item.Properties()
+    );
+
+    public static final DeferredItem<BlockItem> YELLOW_ORCHID_ITEM = ITEMS.registerSimpleBlockItem(
+            "yellow_orchid",
+            YELLOW_ORCHID,
+            new Item.Properties()
+    );
+
+    public static final DeferredItem<BlockItem> LILAC_ORCHID_ITEM = ITEMS.registerSimpleBlockItem(
+            "lilac_orchid",
+            LILAC_ORCHID,
+            new Item.Properties()
+    );
+
+    public static final DeferredItem<BlockItem> PURPLE_ORCHID_ITEM = ITEMS.registerSimpleBlockItem(
+            "purple_orchid",
+            PURPLE_ORCHID,
+            new Item.Properties()
+    );
+
+    public static final DeferredItem<BlockItem> WINE_ORCHID_ITEM = ITEMS.registerSimpleBlockItem(
+            "wine_orchid",
+            WINE_ORCHID,
+            new Item.Properties()
+    );
+
+    public static final DeferredItem<BlockItem> RAINBOW_ORCHID_ITEM = ITEMS.registerSimpleBlockItem(
+            "rainbow_orchid",
+            RAINBOW_ORCHID,
+            new Item.Properties()
+    );
+
+    public static final DeferredItem<BlockItem> STARRY_ORCHID_ITEM = ITEMS.registerSimpleBlockItem(
+            "starry_orchid",
+            STARRY_ORCHID,
+            new Item.Properties()
+    );
+
+
 
     public static final Supplier<MapCodec<DandelionSprout>> DANDELION_SPROUT_CODEC = BLOCK_TYPES.register(
             "dandelion_sprout",
@@ -79,6 +129,14 @@ public class Simple_Plants {
             () -> RecordCodecBuilder.mapCodec((instance) ->
                     instance.group(
                         FlowerBlock.EFFECTS_FIELD.forGetter(FlowerBlock::getSuspiciousEffects), propertiesCodec()).apply(instance, GrownDandelion::new)
+                    )
+    );
+
+    public static final Supplier<MapCodec<Orchid>> ORCHID_CODEC = BLOCK_TYPES.register(
+            "orchid",
+            () -> RecordCodecBuilder.mapCodec((instance) ->
+                    instance.group(
+                        FlowerBlock.EFFECTS_FIELD.forGetter(FlowerBlock::getSuspiciousEffects), propertiesCodec()).apply(instance, Orchid::new)
                     )
     );
 

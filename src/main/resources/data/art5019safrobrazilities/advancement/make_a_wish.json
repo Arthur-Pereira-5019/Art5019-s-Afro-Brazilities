@@ -9,7 +9,7 @@
     "description": {
       "translate": "advancements.art5019safrobrazilities.make_a_wish.description"
     },
-    "frame": "goal",
+    "frame": "task",
     "hidden": false
   },
   "parent": "minecraft:husbandry/plant_seed",

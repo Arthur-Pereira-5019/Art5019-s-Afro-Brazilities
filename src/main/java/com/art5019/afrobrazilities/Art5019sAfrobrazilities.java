@@ -63,6 +63,14 @@ public class Art5019sAfrobrazilities {
                 output.accept(TWO_TONE_RED_AND_BLACK_CANDLE_ITEM.get());
                 output.accept(GROWN_DANDELION_ITEM.get());
                 output.accept(DANDELION_SPROUT_ITEM.get());
+                output.accept(WHITE_ORCHID_ITEM.get());
+                output.accept(WINE_ORCHID_ITEM.get());
+                output.accept(YELLOW_ORCHID_ITEM.get());
+                output.accept(PURPLE_ORCHID_ITEM.get());
+                output.accept(LILAC_ORCHID_ITEM.get());
+                output.accept(WHITE_ORCHID_ITEM.get());
+                output.accept(RAINBOW_ORCHID_ITEM.get());
+                output.accept(STARRY_ORCHID_ITEM.get());
                 output.accept(BEANS.get());
             }).build());
 

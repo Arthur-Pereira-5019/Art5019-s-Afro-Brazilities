@@ -1,0 +1,39 @@
+package com.art5019.afrobrazilities.block;
+
+import com.mojang.serialization.MapCodec;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.util.TriState;
+import net.minecraft.world.item.component.SuspiciousStewEffects;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.FlowerBlock;
+import net.minecraft.world.level.block.VegetationBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+
+import static com.art5019.afrobrazilities.block.Simple_Plants.ORCHID_CODEC;
+
+public class Orchid extends FlowerBlock {
+    public Orchid(SuspiciousStewEffects suspiciousStewEffects, BlockBehaviour.Properties properties) {
+        super(suspiciousStewEffects, properties);
+    }
+
+    @Override
+    public MapCodec<Orchid> codec() {
+        return ORCHID_CODEC.get();
+    }
+
+    @Override
+    protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
+        return state.is(BlockTags.LOGS);
+    }
+
+    @Override
+    protected boolean canSurvive(BlockState p_401395_, LevelReader p_401031_, BlockPos p_401248_) {
+        BlockPos blockpos = p_401248_.below();
+        BlockState belowBlockState = p_401031_.getBlockState(blockpos);
+        return belowBlockState.is(BlockTags.LOGS);
+    }
+}
