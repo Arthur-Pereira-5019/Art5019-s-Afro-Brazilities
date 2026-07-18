@@ -7,6 +7,7 @@ import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.ARGB;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.TriState;
 import net.minecraft.world.item.component.SuspiciousStewEffects;
@@ -44,23 +45,33 @@ public class Orchid extends FlowerBlock {
     @Override
     protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if(state.is(RAINBOW_ORCHID)) {
-            level.sendParticles(
-                    new DustParticleOptions(255,1),
-                    pos.getX(),
-                    pos.getY(),
-                    pos.getZ(),
-                    60,
-                    0.3,
-                    0.3,
-                    0.3,
-                    1
+            level.sendParticles(new DustParticleOptions(255,1),
+                    pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5, 20, 0.3, 0.3, 0.3, 1
+            );
+            level.sendParticles(new DustParticleOptions(255255,1),
+                    pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5, 20, 0.3, 0.3, 0.3, 1
+            );
+            level.sendParticles(new DustParticleOptions(16711680,1),
+                    pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5, 20, 0.3, 0.3, 0.3, 1
+            );
+            level.sendParticles(new DustParticleOptions(ARGB.color(128,0,128),1),
+                    pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5, 20, 0.3, 0.3, 0.3, 1
+            );
+            level.sendParticles(new DustParticleOptions(ARGB.color(255,0,255),1),
+                    pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5, 20, 0.3, 0.3, 0.3, 1
+            );
+            level.sendParticles(new DustParticleOptions(ARGB.color(255,255,0),1),
+                    pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5, 20, 0.3, 0.3, 0.3, 1
+            );
+            level.sendParticles(new DustParticleOptions(ARGB.color(255,153,0),1),
+                    pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5, 20, 0.3, 0.3, 0.3, 1
             );
         } else if (state.is(STARRY_ORCHID)) {
                 level.sendParticles(
                         ParticleTypes.GLOW_SQUID_INK,
-                        pos.getX(),
-                        pos.getY(),
-                        pos.getZ(),
+                        pos.getX()+0.5,
+                        pos.getY()+0.5,
+                        pos.getZ()+0.5,
                         60,
                         0.3,
                         0.3,
