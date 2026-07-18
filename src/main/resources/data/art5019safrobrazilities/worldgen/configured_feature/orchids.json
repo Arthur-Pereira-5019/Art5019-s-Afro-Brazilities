@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:random_patch",
+  "config": {
+    "tries": 128,
+    "xz_spread": 7,
+    "y_spread": 7,
+    "feature": {
+      "feature": {
+        "config": {
+          "to_place": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "art5019safrobrazilities:white_orchid"
+            }
+          }
+        },
+        "type": "minecraft:simple_block"
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:matching_blocks",
+            "offset": [
+              0,
+              -1,
+              0
+            ],
+            "blocks": "#minecraft:logs"
+          }
+        }
+      ]
+    }
+  }
+}
