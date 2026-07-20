@@ -1,13 +1,17 @@
 package com.art5019.afrobrazilities.items;
 
+import com.art5019.afrobrazilities.block.Orchid;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Item.Properties;
 import net.minecraft.world.item.Rarity;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 
-import static com.art5019.afrobrazilities.Art5019sAfrobrazilities.ITEMS;
-import static com.art5019.afrobrazilities.Art5019sAfrobrazilities.MODID;
+import static com.art5019.afrobrazilities.Art5019sAfrobrazilities.*;
+import static com.art5019.afrobrazilities.block.Simple_Plants.makeEffect;
+import static com.art5019.afrobrazilities.block.Simple_Plants.plant_properties;
 
 @Mod(MODID)
 public class Items {
@@ -22,4 +26,6 @@ public class Items {
             Item::new,
             new Properties()
     );
+
+
 }

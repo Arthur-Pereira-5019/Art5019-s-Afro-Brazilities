@@ -1,5 +1,6 @@
 package com.art5019.afrobrazilities.recipes;
 
+import com.art5019.afrobrazilities.block.Orchid;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -11,12 +12,16 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.registries.DeferredBlock;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Stream;
 
+import static com.art5019.afrobrazilities.block.Simple_Plants.ORCHIDS;
 import static com.art5019.afrobrazilities.items.Items.BASE_DYE;
 import static net.minecraft.world.item.Items.*;
 
@@ -35,6 +40,13 @@ public class MyRecipeProvider extends RecipeProvider {
        itemsInTag.toList();*/
         for(Item item: dyes) {
             ShapelessRecipeBuilder.shapeless(this.registries.lookupOrThrow(Registries.ITEM), RecipeCategory.MISC, new ItemStack(item,3)).requires(item).requires(BASE_DYE).group("base_dye_duplication").unlockedBy("has_base_dye", this.has(BASE_DYE)).save(this.output);
+        }
+        for(DeferredBlock<Orchid> block: ORCHIDS) {
+            Item i = block.asItem();
+            ItemLike dye = block.get().getDye();
+            System.out.println(i.toString());
+            ShapelessRecipeBuilder.shapeless(this.registries.lookupOrThrow(Registries.ITEM), RecipeCategory.MISC, new ItemStack(dye,2)).
+                    requires(i).group(i.toString().split(":")[1]).unlockedBy("has_orchid", this.has(i)).save(this.output,dye.asItem().toString().split(":")[1]+"_from_"+i.toString().split(":")[1]);
         }
     }
 

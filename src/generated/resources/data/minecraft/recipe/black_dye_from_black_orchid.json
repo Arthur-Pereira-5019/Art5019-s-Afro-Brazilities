@@ -1,8 +1,9 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
+  "group": "art5019safrobrazilities:black_orchid",
   "ingredients": [
-    "art5019safrobrazilities:black_dye"
+    "art5019safrobrazilities:black_orchid"
   ],
   "result": {
     "count": 2,

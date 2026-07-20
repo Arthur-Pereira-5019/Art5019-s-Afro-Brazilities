@@ -1,11 +1,12 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
+  "group": "art5019safrobrazilities:lilac_orchid",
   "ingredients": [
-    "art5019safrobrazilities:purple_orchid"
+    "art5019safrobrazilities:lilac_orchid"
   ],
   "result": {
     "count": 2,
-    "id": "minecraft:purple"
+    "id": "minecraft:pink_dye"
   }
 }

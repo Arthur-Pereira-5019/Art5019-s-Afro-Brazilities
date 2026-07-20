@@ -10,24 +10,25 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.util.ARGB;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.TriState;
+import net.minecraft.world.item.DyeItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.component.SuspiciousStewEffects;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.VegetationBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.registries.DeferredItem;
 
 import static com.art5019.afrobrazilities.block.Simple_Plants.*;
 
 public class Orchid extends FlowerBlock {
-    public Orchid(SuspiciousStewEffects suspiciousStewEffects, BlockBehaviour.Properties properties) {
+    private final ItemLike dye;
+    public Orchid(SuspiciousStewEffects suspiciousStewEffects, BlockBehaviour.Properties properties, ItemLike dye) {
         super(suspiciousStewEffects, properties);
-    }
-
-    @Override
-    public MapCodec<Orchid> codec() {
-        return ORCHID_CODEC.get();
+        this.dye = dye;
     }
 
     @Override
@@ -40,6 +41,10 @@ public class Orchid extends FlowerBlock {
         BlockPos blockpos = p_401248_.below();
         BlockState belowBlockState = p_401031_.getBlockState(blockpos);
         return belowBlockState.is(BlockTags.LOGS);
+    }
+
+    public ItemLike getDye() {
+        return dye;
     }
 
     @Override

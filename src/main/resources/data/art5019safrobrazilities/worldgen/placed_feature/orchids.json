@@ -2,6 +2,25 @@
   "feature": "art5019safrobrazilities:orchids",
   "placement": [
     {
+      "type": "minecraft:count",
+      "count": 2
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:height_range",
+      "height": {
+        "type": "minecraft:trapezoid",
+        "max_inclusive": {
+          "absolute": 112
+        },
+        "min_inclusive": {
+          "absolute": 62
+        }
+      }
+    },
+    {
       "type": "minecraft:biome"
     }
   ]

@@ -6,15 +6,50 @@
     "y_spread": 7,
     "feature": {
       "feature": {
+        "type": "minecraft:simple_block",
         "config": {
           "to_place": {
-            "type": "minecraft:simple_state_provider",
-            "state": {
-              "Name": "art5019safrobrazilities:white_orchid"
-            }
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 3,
+                "data": {
+                  "Name": "art5019safrobrazilities:white_orchid"
+                }
+              },
+              {
+                "weight": 3,
+                "data": {
+                  "Name": "art5019safrobrazilities:lilac_orchid"
+                }
+              },
+              {
+                "weight": 3,
+                "data": {
+                  "Name": "art5019safrobrazilities:yellow_orchid"
+                }
+              },
+              {
+                "weight": 3,
+                "data": {
+                  "Name": "art5019safrobrazilities:purple_orchid"
+                }
+              },
+              {
+                "weight": 3,
+                "data": {
+                  "Name": "art5019safrobrazilities:wine_orchid"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "art5019safrobrazilities:black_orchid"
+                }
+              }
+            ]
           }
-        },
-        "type": "minecraft:simple_block"
+        }
       },
       "placement": [
         {
@@ -27,6 +62,21 @@
               0
             ],
             "blocks": "#minecraft:logs"
+          }
+        },
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "not",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "offset": [
+                0,
+                0,
+                0
+              ],
+              "blocks": "#minecraft:logs"
+            }
           }
         }
       ]

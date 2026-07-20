@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
+  "group": "art5019safrobrazilities:white_orchid",
   "ingredients": [
     "art5019safrobrazilities:white_orchid"
   ],

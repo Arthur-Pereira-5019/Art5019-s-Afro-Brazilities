@@ -27,24 +27,29 @@ import java.util.List;
 import java.util.function.Supplier;
 
 import static com.art5019.afrobrazilities.Art5019sAfrobrazilities.*;
+import static com.art5019.afrobrazilities.items.Items.BASE_DYE;
+import static net.minecraft.world.item.Items.*;
 import static net.minecraft.world.level.block.state.BlockBehaviour.propertiesCodec;
 import static net.minecraft.world.level.block.state.BlockBehaviour.simpleCodec;
 
 @Mod(MODID)
 public class Simple_Plants {
+
     public static final DeferredBlock<Block> GROWN_DANDELION = BLOCKS.register("grown_dandelion", x -> new GrownDandelion(makeEffect(MobEffects.SATURATION, 0.7F), plant_properties(x)));
-    public static final DeferredBlock<Block> WHITE_ORCHID = BLOCKS.register("white_orchid", x -> new Orchid(makeEffect(MobEffects.RESISTANCE, 8F), plant_properties(x)));
-    public static final DeferredBlock<Block> WINE_ORCHID = BLOCKS.register("wine_orchid", x -> new Orchid(makeEffect(MobEffects.RESISTANCE, 8F), plant_properties(x)));
-    public static final DeferredBlock<Block> YELLOW_ORCHID = BLOCKS.register("yellow_orchid", x -> new Orchid(makeEffect(MobEffects.RESISTANCE, 8F), plant_properties(x)));
-    public static final DeferredBlock<Block> LILAC_ORCHID = BLOCKS.register("lilac_orchid", x -> new Orchid(makeEffect(MobEffects.RESISTANCE, 8F), plant_properties(x)));
-    public static final DeferredBlock<Block> PURPLE_ORCHID = BLOCKS.register("purple_orchid", x -> new Orchid(makeEffect(MobEffects.RESISTANCE, 8F), plant_properties(x)));
-    public static final DeferredBlock<Block> STARRY_ORCHID = BLOCKS.register("starry_orchid", x -> new Orchid(makeEffect(MobEffects.GLOWING, 10F), plant_properties(x)));
-    public static final DeferredBlock<Block> RAINBOW_ORCHID = BLOCKS.register("rainbow_orchid", x -> new Orchid(makeEffect(MobEffects.GLOWING, 7F), plant_properties(x)));
-    public static final DeferredBlock<Block> BLACK_ORCHID = BLOCKS.register("black_orchid", x -> new Orchid(makeEffect(MobEffects.DARKNESS, 7F), plant_properties(x)));
+    public static final DeferredBlock<Orchid> WHITE_ORCHID = BLOCKS.register("white_orchid", x -> new Orchid(makeEffect(MobEffects.RESISTANCE, 8F), plant_properties(x),WHITE_DYE));
+    public static final DeferredBlock<Orchid> WINE_ORCHID = BLOCKS.register("wine_orchid", x -> new Orchid(makeEffect(MobEffects.RESISTANCE, 8F), plant_properties(x),MAGENTA_DYE));
+    public static final DeferredBlock<Orchid> YELLOW_ORCHID = BLOCKS.register("yellow_orchid", x -> new Orchid(makeEffect(MobEffects.RESISTANCE, 8F), plant_properties(x),YELLOW_DYE));
+    public static final DeferredBlock<Orchid> LILAC_ORCHID = BLOCKS.register("lilac_orchid", x -> new Orchid(makeEffect(MobEffects.RESISTANCE, 8F), plant_properties(x),PINK_DYE));
+    public static final DeferredBlock<Orchid> PURPLE_ORCHID = BLOCKS.register("purple_orchid", x -> new Orchid(makeEffect(MobEffects.RESISTANCE, 8F), plant_properties(x),PURPLE_DYE));
+    public static final DeferredBlock<Orchid> STARRY_ORCHID = BLOCKS.register("starry_orchid", x -> new Orchid(makeEffect(MobEffects.GLOWING, 10F), plant_properties(x),GLOW_INK_SAC));
+    public static final DeferredBlock<Orchid> BLACK_ORCHID = BLOCKS.register("black_orchid", x -> new Orchid(makeEffect(MobEffects.DARKNESS, 7F), plant_properties(x),BLACK_DYE));
     public static final DeferredBlock<Block> BEANS = BLOCKS.register("beans", x -> new BeanCrop(plant_properties(x)));
     public static final DeferredBlock<Block> DANDELION_SPROUT = BLOCKS.register("dandelion_sprout", x -> new DandelionSprout(makeEffect(MobEffects.SATURATION, 0.1F), plant_properties(x)));
+    public static final DeferredBlock<Orchid> RAINBOW_ORCHID = BLOCKS.register("rainbow_orchid", x -> new Orchid(makeEffect(MobEffects.GLOWING, 7F), plant_properties(x),BASE_DYE));
 
-    private static BlockBehaviour.Properties plant_properties(ResourceLocation name) {
+    public static final List<DeferredBlock<Orchid>> ORCHIDS = List.of(WHITE_ORCHID,WINE_ORCHID,YELLOW_ORCHID,LILAC_ORCHID,PURPLE_ORCHID,STARRY_ORCHID,RAINBOW_ORCHID,BLACK_ORCHID);
+
+    public static BlockBehaviour.Properties plant_properties(ResourceLocation name) {
         return BlockBehaviour.Properties.of()
                 .mapColor(MapColor.PLANT)
                 .noCollission()
@@ -139,20 +144,20 @@ public class Simple_Plants {
                     )
     );
 
-    public static final Supplier<MapCodec<Orchid>> ORCHID_CODEC = BLOCK_TYPES.register(
+    /*public static final Supplier<MapCodec<Orchid>> ORCHID_CODEC = BLOCK_TYPES.register(
             "orchid",
             () -> RecordCodecBuilder.mapCodec((instance) ->
                     instance.group(
-                        FlowerBlock.EFFECTS_FIELD.forGetter(FlowerBlock::getSuspiciousEffects), propertiesCodec()).apply(instance, Orchid::new)
+                        FlowerBlock.EFFECTS_FIELD.forGetter(FlowerBlock::getSuspiciousEffects), propertiesCodec(),Orchid::getDye).apply(instance, Orchid::new)
                     )
-    );
+    );*/
 
     public static final Supplier<MapCodec<BeanCrop>> BEAN_CODEC = BLOCK_TYPES.register(
             "beans",
             () -> simpleCodec(BeanCrop::new)
     );
 
-    protected static SuspiciousStewEffects makeEffect(Holder<MobEffect> effect, float seconds) {
+    public static SuspiciousStewEffects makeEffect(Holder<MobEffect> effect, float seconds) {
         return new SuspiciousStewEffects(List.of(new SuspiciousStewEffects.Entry(effect, Mth.floor(seconds * 20.0F))));
     }
 

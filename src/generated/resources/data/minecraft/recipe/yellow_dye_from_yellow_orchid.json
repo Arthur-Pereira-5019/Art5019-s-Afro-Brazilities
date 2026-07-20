@@ -1,11 +1,12 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
+  "group": "art5019safrobrazilities:yellow_orchid",
   "ingredients": [
     "art5019safrobrazilities:yellow_orchid"
   ],
   "result": {
     "count": 2,
-    "id": "minecraft:yellow"
+    "id": "minecraft:yellow_dye"
   }
 }
