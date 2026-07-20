@@ -1,6 +1,5 @@
 package com.art5019.afrobrazilities;
 
-import com.art5019.afrobrazilities.items.BuzioConch;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.particles.ParticleType;
 import net.neoforged.neoforge.attachment.AttachmentType;
@@ -13,16 +12,10 @@ import com.mojang.logging.LogUtils;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
-import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
@@ -30,12 +23,12 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
 import static com.art5019.afrobrazilities.block.Candles.TWO_TONE_RED_AND_BLACK_CANDLE_ITEM;
 import static com.art5019.afrobrazilities.block.Simple_Plants.*;
-import static com.art5019.afrobrazilities.items.BuzioConch.BUZIO_CONCH;
+import static com.art5019.afrobrazilities.items.Items.BASE_DYE;
+import static com.art5019.afrobrazilities.items.Items.BUZIO_CONCH;
 
 @Mod(Art5019sAfrobrazilities.MODID)
 public class Art5019sAfrobrazilities {
@@ -73,6 +66,7 @@ public class Art5019sAfrobrazilities {
                 output.accept(STARRY_ORCHID_ITEM.get());
                 output.accept(BLACK_ORCHID_ITEM.get());
                 output.accept(BEANS.get());
+                output.accept(BASE_DYE.get());
             }).build());
 
     public Art5019sAfrobrazilities(IEventBus modEventBus, ModContainer modContainer) {

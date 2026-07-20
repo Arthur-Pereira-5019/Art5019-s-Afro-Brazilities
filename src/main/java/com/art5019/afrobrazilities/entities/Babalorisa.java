@@ -3,8 +3,6 @@ package com.art5019.afrobrazilities.entities;
 import com.art5019.afrobrazilities.data.FortuneRecord;
 import com.art5019.afrobrazilities.data.Fortunes;
 import com.art5019.afrobrazilities.utils.ItemStackUtils;
-import net.minecraft.core.component.DataComponentPatch;
-import net.minecraft.core.component.PatchedDataComponentMap;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
@@ -12,7 +10,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.network.Filterable;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -33,10 +30,9 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import static com.art5019.afrobrazilities.data.DataAttachments.FORTUNE;
-import static com.art5019.afrobrazilities.items.BuzioConch.BUZIO_CONCH;
+import static com.art5019.afrobrazilities.items.Items.BUZIO_CONCH;
 import static net.minecraft.core.component.DataComponents.WRITTEN_BOOK_CONTENT;
 import static net.minecraft.network.chat.Component.literal;
 import static net.minecraft.world.item.Items.*;

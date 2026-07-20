@@ -12,6 +12,7 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.component.SuspiciousStewEffects;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -106,13 +107,13 @@ public class Simple_Plants {
     public static final DeferredItem<BlockItem> RAINBOW_ORCHID_ITEM = ITEMS.registerSimpleBlockItem(
             "rainbow_orchid",
             RAINBOW_ORCHID,
-            new Item.Properties()
+            new Item.Properties().rarity(Rarity.UNCOMMON)
     );
 
     public static final DeferredItem<BlockItem> STARRY_ORCHID_ITEM = ITEMS.registerSimpleBlockItem(
             "starry_orchid",
             STARRY_ORCHID,
-            new Item.Properties()
+            new Item.Properties().rarity(Rarity.UNCOMMON)
     );
 
     public static final DeferredItem<BlockItem> BLACK_ORCHID_ITEM = ITEMS.registerSimpleBlockItem(
