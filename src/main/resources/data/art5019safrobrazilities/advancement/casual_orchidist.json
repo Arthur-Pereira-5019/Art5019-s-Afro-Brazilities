@@ -1,0 +1,118 @@
+{
+  "display": {
+    "icon": {
+      "id": "art5019safrobrazilities:white_orchid"
+    },
+    "title": {
+      "translate": "advancements.art5019safrobrazilities.casual_orchidist.title"
+    },
+    "description": {
+      "translate": "advancements.art5019safrobrazilities.casual_orchidist.description"
+    },
+    "frame": "goal",
+    "hidden": true
+  },
+  "parent": "minecraft:husbandry/root",
+  "criteria": {
+    "obtain_all_orchids_0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "art5019safrobrazilities:wine_orchid"
+            ],
+            "count": {
+              "min": 1,
+              "max": 100
+            }
+          }
+        ]
+      }
+    },
+    "obtain_all_orchids_1": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "art5019safrobrazilities:purple_orchid"
+            ],
+            "count": {
+              "min": 1,
+              "max": 100
+            }
+          }
+        ]
+      }
+    },
+    "obtain_all_orchids_2": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:blue_orchid"
+            ],
+            "count": {
+              "min": 1,
+              "max": 100
+            }
+          }
+        ]
+      }
+    },
+    "obtain_all_orchids_3": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "art5019safrobrazilities:lilac_orchid"
+            ],
+            "count": {
+              "min": 1,
+              "max": 100
+            }
+          }
+        ]
+      }
+    },
+    "obtain_all_orchids_4": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "art5019safrobrazilities:yellow_orchid"
+            ],
+            "count": {
+              "min": 1,
+              "max": 100
+            }
+          }
+        ]
+      }
+    },
+    "obtain_all_orchids_5": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "art5019safrobrazilities:white_orchid"
+            ],
+            "count": {
+              "min": 1,
+              "max": 100
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 25,
+    "recipes": []
+  }
+}
