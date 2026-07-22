@@ -39,6 +39,10 @@
   "advancements.art5019safrobrazilities.hail_to_u.description": "Have a wish granted by blowing an Grown Dandelion.",
   "advancements.art5019safrobrazilities.make_a_wish.title": "Make a Wish",
   "advancements.art5019safrobrazilities.make_a_wish.description": "Blow an Grown Dandelion.",
+  "advancements.art5019safrobrazilities.ranked_orchidist.title": "Ranked Orchidist",
+  "advancements.art5019safrobrazilities.ranked_orchidist.description": "Obtain every single Orchid.",
+  "advancements.art5019safrobrazilities.casual_orchidist.title": "Casual Orchidist",
+  "advancements.art5019safrobrazilities.casual_orchidist.description": "Obtain every common Orchid.",
 
   "death.attack.peaceful_death": "%s died peacefully",
   "death.attack.painful_death": "%s agonized until death",
