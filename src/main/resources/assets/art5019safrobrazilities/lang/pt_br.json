@@ -1,12 +1,20 @@
 {
   "itemGroup.art5019safrobrazilities": "Art5019's Afrobrazilites",
-
-
   "item.art5019safrobrazilities.osun_honey": "Mel de Oxum",
   "item.art5019safrobrazilities.buzio_conch": "Búzio",
+  "item.art5019safrobrazilities.base_dye": "Corante Base",
   "block.art5019safrobrazilities.two_tone_red_and_black_candle": "Vela Bicolor Preta e Vermelha",
-
-
+  "block.art5019safrobrazilities.grown_dandelion": "Dente-de-Leão Crescido",
+  "block.art5019safrobrazilities.dandelion_sprout": "Broto de Dente-de-Leão",
+  "block.art5019safrobrazilities.lilac_orchid": "Orquídea Lilás",
+  "block.art5019safrobrazilities.black_orchid": "Orquídea Negra",
+  "block.art5019safrobrazilities.white_orchid": "Orquídea Branca",
+  "block.art5019safrobrazilities.purple_orchid": "Orquídea Roxa",
+  "block.art5019safrobrazilities.wine_orchid": "Orquídea Vinho",
+  "block.art5019safrobrazilities.starry_orchid": "Orquídea Estrelada",
+  "block.art5019safrobrazilities.yellow_orchid": "Orquídea Amarela",
+  "block.art5019safrobrazilities.rainbow_orchid": "Orquídea Arco-Íris",
+  "block.art5019safrobrazilities.beans": "Feijão Preto",
   "art5019safrobrazilities.configuration.title": "Art5019's Afrobrazilities Configs",
   "art5019safrobrazilities.configuration.section.art5019safrobrazilities.common.toml": "Art5019's Afrobrazilities Configs",
   "art5019safrobrazilities.configuration.section.art5019safrobrazilities.common.toml.title": "Art5019's Afrobrazilities Configs",
@@ -14,8 +22,6 @@
   "art5019safrobrazilities.configuration.logDirtBlock": "Log Dirt Block",
   "art5019safrobrazilities.configuration.magicNumberIntroduction": "Magic Number Text",
   "art5019safrobrazilities.configuration.magicNumber": "Magic Number",
-
-
   "advancements.art5019safrobrazilities.chandlery.title": "Velaria",
   "advancements.art5019safrobrazilities.chandlery.description": "Faça sua primeira vela",
   "advancements.art5019safrobrazilities.fervent_chandlery.title": "Velaria fervente",
@@ -24,12 +30,18 @@
   "advancements.art5019safrobrazilities.gold_fishing.description": "Pesque em um rio estando abençoado por Oxum",
   "advancements.art5019safrobrazilities.new_mansa.title": "Novo Mansa",
   "advancements.art5019safrobrazilities.new_mansa.description": "Obtenha um Bloco de Ouro Bruto pescando.",
-
-
+  "advancements.art5019safrobrazilities.field_of_hopes.title": "Field of Hopes and Dreams",
+  "advancements.art5019safrobrazilities.field_of_hopes.description": "Throw a Wind Charge on a Grown Dandelion.",
+  "advancements.art5019safrobrazilities.hail_to_u.title": "Seu Desejo é uma Ordem",
+  "advancements.art5019safrobrazilities.hail_to_u.description": "Tenha um pedido garantido assoprando um Dente-de-Leão Crescido.",
+  "advancements.art5019safrobrazilities.make_a_wish.title": "Faça um Pedido",
+  "advancements.art5019safrobrazilities.make_a_wish.description": "Assopre um Dente de Leão Crescido.",
+  "advancements.art5019safrobrazilities.ranked_orchidist.title": "Orquidista Ranqueado",
+  "advancements.art5019safrobrazilities.ranked_orchidist.description": "Obtenha todas as Orquídeas.",
+  "advancements.art5019safrobrazilities.casual_orchidist.title": "Orquidista Casual",
+  "advancements.art5019safrobrazilities.casual_orchidist.description": "Obtenha todos as Orquídeas comuns.",
   "death.attack.peaceful_death": "%s morreu pacificamente",
   "death.attack.painful_death": "%s agonizou até a morte",
-
-
   "art5019afrobrazilities.fortune.full.nothing": "Ao que parece, nada vai acontecer no dia %s",
   "art5019afrobrazilities.fortune.full.luck_fishing": "Tesouros te aguardam nos mares no dia %s.",
   "art5019afrobrazilities.fortune.full.luck_fishing_2": "Tesouros te aguardam nos rios no dia %s.",
@@ -66,14 +78,10 @@
   "art5019afrobrazilities.fortune.name.judgement": "Julgamento",
   "art5019afrobrazilities.fortune.name.mining_luck": "Sorte na mineração",
   "art5019afrobrazilities.fortune.name.betrayal": "Traição",
-
-
   "art5019afrobrazilities.entity.babalorisa": "Babalorixá",
   "art5019afrobrazilities.entity.babalorisa.np2": "Eu sei que você quer ver seu futuro, mas infelizmente Afogados roubaram meus búzios, vou precisar de ajuda para ter novamente 16.",
   "art5019afrobrazilities.entity.babalorisa.np3": "Muito obrigado pela ajuda, agora preciso do pagamento de 28 Esmeraldas, mas fique tranquilo, vai tudo para caridade e oferendas.",
   "art5019afrobrazilities.entity.babalorisa.np1": "Obrigado pelo dinheiro, por fim, preciso de um Livro e Pena para registrar o que seus guias me contaram.",
-
-
   "art5019safrobrazilities.world.terreiro.wip.l1": "Terreiro ",
   "art5019safrobrazilities.world.terreiro.wip.l2": "em",
   "art5019safrobrazilities.world.terreiro.wip.l3": "reforma"
