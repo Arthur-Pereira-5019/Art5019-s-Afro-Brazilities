@@ -90,7 +90,7 @@ public class GrownDandelion extends FlowerBlock {
         AtomicInteger placed = new AtomicInteger(0);
         for (int t = 0; t < 200; t++) {
             WorldTick.queueServerWork(t * 2, () -> {
-                if(placed.get() < 5) {
+                if(placed.get() < 4) {
                     BlockPos nb = new BlockPos(b.getX() + r.nextInt(-13, 13), b.getY() + r.nextInt(-8, 2), b.getZ() + r.nextInt(-13, 13));
                     if (sl.getBlockState(nb).is(BlockTags.DIRT)) {
                         if (sl.getBlockState(nb.offset(0, 1, 0)).is(BlockTags.AIR)) {
