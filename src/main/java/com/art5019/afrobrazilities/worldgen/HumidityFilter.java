@@ -5,6 +5,8 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
@@ -12,6 +14,7 @@ import net.minecraft.world.level.biome.Climate;
 import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
 import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.placement.*;
+import net.neoforged.neoforge.server.ServerLifecycleHooks;
 import org.apache.commons.io.function.IOQuadFunction;
 
 public class HumidityFilter extends PlacementFilter {
@@ -28,14 +31,12 @@ public class HumidityFilter extends PlacementFilter {
         WorldGenLevel level = placementContext.getLevel();
         RegistryAccess registryaccess = level.registryAccess();
         RandomState rs = RandomState.create(NoiseGeneratorSettings.dummy(), registryaccess.lookupOrThrow(Registries.NOISE), placementContext.getLevel().getSeed());
-        var result = rs.sampler().sample(blockPos.getX(), blockPos.getY(), blockPos.getZ());
-        IOQuadFunction<Climate.Sampler, Integer, Integer, Integer, Climate.TargetPoint> sample = Climate.Sampler.sample(blockPos.getX(),blockPos.getY(),blockPos.getZ());
+        var result = level.getLevel().getChunkSource().randomState().sampler().sample(blockPos.getX(), blockPos.getY(), blockPos.getZ());
         System.out.println(result.humidity());
         if(result.humidity() > humidity) {
             return true;
         }
         return false;
-        level.getChunkSource().randomState().sampler()
     }
 
     @Override
