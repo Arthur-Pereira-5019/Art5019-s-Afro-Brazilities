@@ -18,24 +18,23 @@ import net.minecraft.world.level.levelgen.placement.*;
 import net.neoforged.neoforge.server.ServerLifecycleHooks;
 import org.apache.commons.io.function.IOQuadFunction;
 
-public class HumidityFilter extends PlacementFilter {
-    public static MapCodec<HumidityFilter> CODEC = Codec.FLOAT.fieldOf("humidity").xmap(HumidityFilter::new, (x) -> x.humidity);
+public class TemperatureFilter extends PlacementFilter {
+    public static MapCodec<TemperatureFilter> CODEC = Codec.FLOAT.fieldOf("temperature").xmap(TemperatureFilter::new, (x) -> x.temperature);
 
-    private final float humidity;
+    private final float temperature;
 
-    public HumidityFilter(float humidity) {
-        this.humidity = humidity;
+    public TemperatureFilter(float temperature) {
+        this.temperature = temperature;
     }
 
     @Override
     protected boolean shouldPlace(PlacementContext placementContext, RandomSource randomSource, BlockPos blockPos) {
-        WorldGenLevel level = placementContext.getLevel();
         int i = QuartPos.fromBlock(blockPos.getX());
         int j = QuartPos.fromBlock(blockPos.getY());
         int k = QuartPos.fromBlock(blockPos.getZ());
-        var result = level.getLevel().getChunkSource().randomState().sampler().sample(i, j, k);
-        float ch = Climate.unquantizeCoord(result.humidity());
-        if(ch > humidity) {
+        var result = placementContext.getLevel().getLevel().getChunkSource().randomState().sampler().sample(i,j,k);
+        float ct = Climate.unquantizeCoord(result.temperature());
+        if(ct > temperature) {
             return true;
         }
         return false;
@@ -43,6 +42,6 @@ public class HumidityFilter extends PlacementFilter {
 
     @Override
     public PlacementModifierType<?> type() {
-        return PlacementModifiers.HUMIDITY.get();
+        return PlacementModifiers.TEMPERATURE.get();
     }
 }

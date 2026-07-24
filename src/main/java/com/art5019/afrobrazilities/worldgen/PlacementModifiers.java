@@ -12,6 +12,7 @@ import static com.art5019.afrobrazilities.Art5019sAfrobrazilities.PLACEMENT_MODI
 @Mod(MODID)
 public class PlacementModifiers {
     public static final DeferredHolder<PlacementModifierType<?>, PlacementModifierType<HumidityFilter>> HUMIDITY = register("humidity_filter", HumidityFilter.CODEC);
+    public static final DeferredHolder<PlacementModifierType<?>, PlacementModifierType<TemperatureFilter>> TEMPERATURE = register("temperature_filter", TemperatureFilter.CODEC);
 
     private static <T extends PlacementModifier> DeferredHolder<PlacementModifierType<?>, PlacementModifierType<T>> register(String id, MapCodec<T> codec) {
         return PLACEMENT_MODIFIERS.register(id, () -> () -> codec);

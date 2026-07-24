@@ -1,6 +1,6 @@
 {
     "type": "neoforge:add_features",
-    "biomes": "#c:is_jungle",
+    "biomes": "#c:is_overworld",
     "features": "art5019safrobrazilities:orchids",
     "step": "top_layer_modification"
 }
