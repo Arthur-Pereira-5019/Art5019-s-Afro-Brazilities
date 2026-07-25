@@ -24,7 +24,8 @@ public class ClientSetup {
     public static void clientSetup(RegisterClientExtensionsEvent event) {
         ItemBlockRenderTypes.setRenderLayer(Simple_Plants.GROWN_DANDELION.get(), ChunkSectionLayer.CUTOUT);
         ItemBlockRenderTypes.setRenderLayer(Simple_Plants.DANDELION_SPROUT.get(), ChunkSectionLayer.CUTOUT);
-        ItemBlockRenderTypes.setRenderLayer(Simple_Plants.BEANS.get(), ChunkSectionLayer.CUTOUT);
+        ItemBlockRenderTypes.setRenderLayer(Simple_Plants.BLACK_BEANS.get(), ChunkSectionLayer.CUTOUT);
+        ItemBlockRenderTypes.setRenderLayer(Simple_Plants.SOYBEANS.get(), ChunkSectionLayer.CUTOUT);
     }
 
     @SubscribeEvent

@@ -69,7 +69,8 @@ public class Art5019sAfrobrazilities {
                 output.accept(RAINBOW_ORCHID_ITEM.get());
                 output.accept(STARRY_ORCHID_ITEM.get());
                 output.accept(BLACK_ORCHID_ITEM.get());
-                output.accept(BEANS.get());
+                output.accept(BLACK_BEANS_ITEM.get());
+                output.accept(SOYBEANS_ITEM.get());
                 output.accept(BASE_DYE.get());
             }).build());
 

@@ -10,8 +10,7 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
 import net.neoforged.neoforge.common.loot.LootModifier;
 
-import static com.art5019.afrobrazilities.block.Simple_Plants.BEANS;
-import static com.art5019.afrobrazilities.block.Simple_Plants.BEANS_ITEM;
+import static com.art5019.afrobrazilities.block.Simple_Plants.*;
 
 public class BarteringModifier extends LootModifier {
     public static final MapCodec<BarteringModifier> CODEC = RecordCodecBuilder.mapCodec(inst ->
@@ -30,7 +29,7 @@ public class BarteringModifier extends LootModifier {
     @Override
     protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
         if(context.getRandom().nextFloat() < 0.04) {
-            ItemStack beans = new ItemStack(BEANS_ITEM.asItem(),2);
+            ItemStack beans = new ItemStack(BLACK_BEANS_ITEM.asItem(),2);
             generatedLoot = new ObjectArrayList<>();
             generatedLoot.add(beans);
         }

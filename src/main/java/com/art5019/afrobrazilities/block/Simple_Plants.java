@@ -47,7 +47,7 @@ public class Simple_Plants {
     public static final DeferredBlock<Orchid> STARRY_ORCHID = BLOCKS.register("starry_orchid", x -> new Orchid(makeEffect(MobEffects.GLOWING, 10F), orchid_properties(x),GLOW_INK_SAC));
     public static final DeferredBlock<Orchid> BLACK_ORCHID = BLOCKS.register("black_orchid", x -> new Orchid(makeEffect(MobEffects.DARKNESS, 7F), orchid_properties(x),BLACK_DYE));
     public static final DeferredBlock<Block> BLACK_BEANS = BLOCKS.register("black_beans", x -> new AbstractBeanCrop(plant_properties(x)));
-    public static final DeferredBlock<Block> SOYBEANS = BLOCKS.register("soy_beans", x -> new AbstractBeanCrop(plant_properties(x)));
+    public static final DeferredBlock<Block> SOYBEANS = BLOCKS.register("soybeans", x -> new AbstractBeanCrop(plant_properties(x)));
     public static final DeferredBlock<Block> DANDELION_SPROUT = BLOCKS.register("dandelion_sprout", x -> new DandelionSprout(makeEffect(MobEffects.SATURATION, 0.1F), plant_properties(x)));
 
     public static final List<DeferredBlock<Orchid>> ORCHIDS = List.of(WHITE_ORCHID,WINE_ORCHID,YELLOW_ORCHID,LILAC_ORCHID,PURPLE_ORCHID,STARRY_ORCHID,RAINBOW_ORCHID,BLACK_ORCHID);
@@ -96,7 +96,7 @@ public class Simple_Plants {
     );
 
     public static final DeferredItem<BlockItem> SOYBEANS_ITEM = ITEMS.registerSimpleBlockItem(
-            "soy_beans",
+            "soybeans",
             SOYBEANS,
             new Item.Properties()
     );
