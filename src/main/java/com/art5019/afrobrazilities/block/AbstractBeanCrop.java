@@ -1,28 +1,25 @@
 package com.art5019.afrobrazilities.block;
 
 import com.mojang.serialization.MapCodec;
-import net.minecraft.world.level.block.BeetrootBlock;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
-import static com.art5019.afrobrazilities.block.Simple_Plants.BEAN_CODEC;
+import static com.art5019.afrobrazilities.block.Simple_Plants.ABSTRACT_BEAN_CODEC;
 
-public class BeanCrop extends CropBlock {
+public class AbstractBeanCrop extends CropBlock {
     public static final int MAX_AGE = 6;
     public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 6);
 
-    public BeanCrop(Properties p_52247_) {
+    public AbstractBeanCrop(Properties p_52247_) {
         super(p_52247_);
     }
 
     @Override
-    public MapCodec<BeanCrop> codec() {
-        return BEAN_CODEC.get();
+    public MapCodec<AbstractBeanCrop> codec() {
+        return ABSTRACT_BEAN_CODEC.get();
     }
 
     @Override

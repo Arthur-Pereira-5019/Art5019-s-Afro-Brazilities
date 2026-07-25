@@ -1,6 +1,5 @@
 package com.art5019.afrobrazilities.block;
 
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
@@ -19,7 +18,6 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.fml.common.Mod;
@@ -29,7 +27,6 @@ import net.minecraft.world.level.block.FlowerBlock;
 
 import java.util.List;
 import java.util.function.Supplier;
-import java.util.function.ToIntFunction;
 
 import static com.art5019.afrobrazilities.Art5019sAfrobrazilities.*;
 import static com.art5019.afrobrazilities.items.Items.BASE_DYE;
@@ -49,7 +46,8 @@ public class Simple_Plants {
     public static final DeferredBlock<Orchid> PURPLE_ORCHID = BLOCKS.register("purple_orchid", x -> new Orchid(makeEffect(MobEffects.RESISTANCE, 8F), orchid_properties(x),PURPLE_DYE));
     public static final DeferredBlock<Orchid> STARRY_ORCHID = BLOCKS.register("starry_orchid", x -> new Orchid(makeEffect(MobEffects.GLOWING, 10F), orchid_properties(x),GLOW_INK_SAC));
     public static final DeferredBlock<Orchid> BLACK_ORCHID = BLOCKS.register("black_orchid", x -> new Orchid(makeEffect(MobEffects.DARKNESS, 7F), orchid_properties(x),BLACK_DYE));
-    public static final DeferredBlock<Block> BEANS = BLOCKS.register("beans", x -> new BeanCrop(plant_properties(x)));
+    public static final DeferredBlock<Block> BLACK_BEANS = BLOCKS.register("black_beans", x -> new AbstractBeanCrop(plant_properties(x)));
+    public static final DeferredBlock<Block> SOYBEANS = BLOCKS.register("soy_beans", x -> new AbstractBeanCrop(plant_properties(x)));
     public static final DeferredBlock<Block> DANDELION_SPROUT = BLOCKS.register("dandelion_sprout", x -> new DandelionSprout(makeEffect(MobEffects.SATURATION, 0.1F), plant_properties(x)));
 
     public static final List<DeferredBlock<Orchid>> ORCHIDS = List.of(WHITE_ORCHID,WINE_ORCHID,YELLOW_ORCHID,LILAC_ORCHID,PURPLE_ORCHID,STARRY_ORCHID,RAINBOW_ORCHID,BLACK_ORCHID);
@@ -91,9 +89,15 @@ public class Simple_Plants {
             new Item.Properties()
     );
 
-    public static final DeferredItem<BlockItem> BEANS_ITEM = ITEMS.registerSimpleBlockItem(
-            "beans",
-            BEANS,
+    public static final DeferredItem<BlockItem> BLACK_BEANS_ITEM = ITEMS.registerSimpleBlockItem(
+            "black_beans",
+            BLACK_BEANS,
+            new Item.Properties()
+    );
+
+    public static final DeferredItem<BlockItem> SOYBEANS_ITEM = ITEMS.registerSimpleBlockItem(
+            "soy_beans",
+            SOYBEANS,
             new Item.Properties()
     );
 
@@ -170,9 +174,9 @@ public class Simple_Plants {
                     )
     );*/
 
-    public static final Supplier<MapCodec<BeanCrop>> BEAN_CODEC = BLOCK_TYPES.register(
-            "beans",
-            () -> simpleCodec(BeanCrop::new)
+    public static final Supplier<MapCodec<AbstractBeanCrop>> ABSTRACT_BEAN_CODEC = BLOCK_TYPES.register(
+            "abstract_bean_codec",
+            () -> simpleCodec(AbstractBeanCrop::new)
     );
 
     public static SuspiciousStewEffects makeEffect(Holder<MobEffect> effect, float seconds) {
