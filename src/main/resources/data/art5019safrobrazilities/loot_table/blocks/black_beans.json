@@ -7,17 +7,17 @@
   ],
   "pools": [
     {
-      "bonus_rolls": 0.0,
+      "bonus_rolls": 0,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:potato"
+          "name": "art5019safrobrazilities:black_beans"
         }
       ],
-      "rolls": 2.0
+      "rolls": 1
     },
     {
-      "bonus_rolls": 0.0,
+      "bonus_rolls": 0,
       "conditions": [
         {
           "block": "art5019safrobrazilities:black_beans",
@@ -41,13 +41,20 @@
               }
             }
           ],
-          "name": "minecraft:potato"
+          "name": "art5019safrobrazilities:black_beans"
         }
       ],
-      "rolls": 2.0
+      "rolls": 1
     },
     {
-      "bonus_rolls": 0.0,
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "art5019safrobrazilities:black_beans"
+        }
+      ],
       "conditions": [
         {
           "block": "art5019safrobrazilities:black_beans",
@@ -59,5 +66,5 @@
       ]
     }
   ],
-  "random_sequence": "minecraft:blocks/potatoes"
+  "random_sequence": "art5019safrobrazilities:blocks/black_beans"
 }
