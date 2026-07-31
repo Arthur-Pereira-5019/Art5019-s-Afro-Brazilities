@@ -4,10 +4,10 @@
       "model": "art5019safrobrazilities:block/soy_feed_cauldron_level1"
     },
     "level=2": {
-      "model": "art5019safrobrazilities:block/soy_feed_cauldron_level1"
+      "model": "art5019safrobrazilities:block/soy_feed_cauldron_level2"
     },
     "level=3": {
-      "model": "art5019safrobrazilities:block/soy_feed_cauldron_level1"
+      "model": "art5019safrobrazilities:block/soy_feed_cauldron_level3"
     }
   }
 }
