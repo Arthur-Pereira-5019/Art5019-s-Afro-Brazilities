@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "art5019safrobrazilities:block/soy_feed"
+  }
+}

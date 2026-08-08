@@ -21,7 +21,7 @@ import net.minecraft.world.level.block.entity.HopperBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
-import static com.art5019.afrobrazilities.block.Misc.SOY_OIL_CAULDRON;
+import static com.art5019.afrobrazilities.block.Misc.*;
 import static net.minecraft.world.item.Items.CAULDRON;
 import static net.minecraft.world.item.Items.SAND;
 import static net.minecraft.world.level.block.Blocks.HOPPER;
@@ -37,7 +37,7 @@ public class SoyFeedCauldron extends LayeredCauldronBlock{
             if(serverLevel.getBlockState(blockPos.below()).is(HOPPER)) {
                 var container = HopperBlockEntity.
                         getContainerOrHandlerAt(serverLevel, blockPos.below(), Direction.UP);
-                if(HopperBlockEntity.addItem(null, container.container(), new ItemStack(SAND), Direction.UP) == ItemStack.EMPTY) {
+                if(HopperBlockEntity.addItem(null, container.container(), new ItemStack(SOY_FEED_ITEM.asItem()), Direction.UP) == ItemStack.EMPTY) {
                     takeSoyFeed(serverLevel, blockPos);
                 }
             }
@@ -62,7 +62,7 @@ public class SoyFeedCauldron extends LayeredCauldronBlock{
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         if(state.getValue(LayeredCauldronBlock.LEVEL) == 3 && level instanceof ServerLevel) {
-            player.addItem(new ItemStack(SAND));
+            player.addItem(new ItemStack(SOY_FEED_ITEM.asItem()));
             takeSoyFeed((ServerLevel) level,pos);
         }
         return super.useWithoutItem(state, level, pos, player, hitResult);

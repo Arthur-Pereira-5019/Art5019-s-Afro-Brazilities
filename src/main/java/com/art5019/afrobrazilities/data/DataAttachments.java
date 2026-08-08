@@ -45,4 +45,8 @@ public class DataAttachments {
             "spiritual_protection", () -> AttachmentType.builder(() -> 0).serialize(Codec.INT.fieldOf("spiritual_protection")).build()
     );
 
+    public static final Supplier<AttachmentType<Float>> STOCK_FAT = ATTACHMENT_TYPES.register(
+            "stock_fat", () -> AttachmentType.builder(() -> 0F).serialize(Codec.FLOAT.fieldOf("stock_fat")).build()
+    );
+
 }
